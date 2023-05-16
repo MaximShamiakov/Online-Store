@@ -1,31 +1,34 @@
 import React from 'react'
-import {Button, VisiblePopup} from '../..'
+import {Button, VisiblePopup, Filter} from '../..'
 import { useDispatch } from "react-redux";
-import { setSortBy } from '../../../redux/actions/filters';
+import { setSortBy } from '../../../redux/actions/sort';
 
 
-const categorys = [
-  "tv",
-  "telephone",
-  "computers",
-  "kitchen",
-  "audio",
-  "game",
-  "sport",
-  "photoVideo"
-]
+
+
 
 export default function ModelTV(props) {
+  const categorys = [
+    "tv",
+    "telephone",
+    "computers",
+    "kitchen",
+    "audio",
+    "game",
+    "sport",
+    "photoVideo"
+  ]
   const sortBy = props.sortBy
-    const dispatch = useDispatch();
-    const onSelectSortType = React.useCallback((type) => {
-    dispatch(setSortBy(type));
-    console.log(type)
+  console.log(sortBy)
+  const dispatch = useDispatch();
+  const onSelectSortType = React.useCallback((type) => {
+      console.log(type)
+      dispatch(setSortBy(type));
   });
   
 const onAddModels = (el)=>{
   const obj = {
-    id: el.id, 
+    id: el.idProduct, 
     img: el.img,
     name: el.name,
     brand: el.brand,
@@ -37,12 +40,15 @@ const onAddModels = (el)=>{
   return (
     <div className="cont description">
         <div className="form">
-            <VisiblePopup activeSortType = {sortBy} onClickItem={onSelectSortType} />
+          
+            <VisiblePopup activeSortText = {sortBy} onClickItem={onSelectSortType} />
+            <Filter/>
             <form className="input-group">
                 <div className="block-img-info">
                 {
-                  props.stateTv.map((el)=>( el.title === categorys[props.categoryNumber] &&  <div key={el.id + el} className="block-product">
+                  props.stateTv.map((el)=>( el.title === categorys[props.categoryNumber] &&  <div key={el.idProduct + el} className="block-product">
                   <img className="tv" src={el.img} alt=""/>
+                    { el.idProduct && <h2 className="txt">id-<span>{el.idProduct}</span></h2>}
                     { el.name && <h2 className="txt">Наименование - <span>{el.name}</span></h2>}
                     { el.brand &&<h2 className="txt"> <span> Модель -{el.brand}</span></h2>}
                     { el.screenSize && <h2 className="txt">Размер экрана - <span >{el.screenSize}</span></h2>}

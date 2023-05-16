@@ -1,6 +1,7 @@
 import React from 'react'
 
 export default function Delivery(props) {
+
   return (
     <div  className={props.className}>
         <div className="form">

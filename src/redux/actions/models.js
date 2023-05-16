@@ -1,16 +1,9 @@
-// хронятся действия связаные с фильтрацией
 import axios from "axios";
 
-// библтотека REDUX THUNK
-// асенхронная функция (dispatch)
-export const fetchModels = (sortBy) => (dispatch) => {
-  console.log(sortBy);
-  axios
-    .get(`/db?_sort=${sortBy}&_order=asc`)
-    // _sort=${field}&_order=${order}
-    .then(({ data }) => {
-      dispatch(setModels(data.bd));
-    });
+export const fetchModels = () => (dispatch) => {
+  axios.get("http://127.0.0.1:8000/").then((data) => {
+    dispatch(setModels(data.data));
+  });
 };
 
 export const setModels = (items) => ({

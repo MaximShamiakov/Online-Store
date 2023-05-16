@@ -1,5 +1,5 @@
 {
-"bd": [
+"bd": 
     {   
         "id": 0,
         "title": "tv",
@@ -368,7 +368,7 @@
     "title": "telephone",
     "name": "Телефон",
     "img": "https://img.5element.by/import/images/ut/goods/good_65783637-752f-11ed-bb95-0050560120e8/redmi-note-10-pro-8gb-256gb-onyx-gray-eu-telefon-gsm-xiaomi-1_200.jpg",
-    "brand": ["XIAOMI"],
+    "brand": "XIAOMI",
     "price": 100,
     "screenSize": "6.7  1080х2388 , IPS",
     "memory": "ОЗУ 6 ГБ , 128 ГБ",
@@ -379,7 +379,7 @@
     "title": "telephone",
     "name": "Телефон",
     "img": "https://img.5element.by/import/images/ut/goods/good_ea3e93ab-a6cf-11ed-bb92-005056012465/-1_200.jpg",
-    "brand": ["SAMSUNG"],
+    "brand": "SAMSUNG",
     "price": 200,
     "screenSize": "6.8 1440x3088",
     "memory": "ОЗУ 12ГБ, 512ГБ",
@@ -390,7 +390,7 @@
     "title": "telephone",
     "name": "Телефон",
     "img": "https://img.5element.by/import/images/ut/goods/good_b5813643-828d-11ed-bb97-0050560120e8/-1_200.jpg",
-    "brand": ["Apple"],
+    "brand": "Apple",
     "price": 300,
     "screenSize": "6.1 1170x2532 , OLED",
     "memory": " ОЗУ 6 ГБ , 256 ГБ",
@@ -401,7 +401,7 @@
     "title": "telephone",
     "name": "Телефон",
     "img": "https://img.5element.by/import/images/ut/goods/good_81ac8c4d-3fc1-11ed-bb95-0050560120e8/iphone-x-b-u-64gb-space-gray-telefon-gsm-apple-2bmqac2-1_200.jpg",
-    "brand": ["Honor"],
+    "brand": "Honor",
     "price": 400,
     "screenSize": "6.55 2400х1080 , AMOLED",
     "memory": "ОЗУ 8 ГБ , 256 ГБ",
@@ -412,10 +412,10 @@
     "title": "telephone",
     "name": "Телефон",
     "img": "https://img.5element.by/import/images/ut/goods/good_cfb97030-6684-11ed-bb95-0050560120e8/-1_200.jpg",
-    "brand": ["Huawei"],
+    "brand": "Huawei",
     "price": 500,
     "screenSize": "6.7 1080х2388 , IPS",
-    "memory": " ОЗУ 6 ГБ , 128 ГБ",
+    "memory": "ОЗУ 6 ГБ , 128 ГБ",
     "cpu": "MediaTek Helio G88 2.0 ГГц"
 },
 {   
@@ -423,7 +423,7 @@
     "title": "telephone",
     "name": "Телефон",
     "img": "https://img.5element.by/import/images/ut/goods/good_889aec71-fe89-11ec-bb95-0050560120e8/redmi-10-2022-4gb-128gb-sea-blue-eu-telefon-gsm-xiaomi-1_200.jpg",
-    "brand": ["Philips"],
+    "brand": "Philips",
     "price": 600,
     "screenSize": "6.67 1080x2400 , OLED",
     "memory": "ОЗУ 6 ГБ , 128 ГБ",
@@ -434,7 +434,7 @@
     "title": "telephone",
     "name": "Телефон",
     "img": "https://img.5element.by/import/images/ut/goods/good_65783637-752f-11ed-bb95-0050560120e8/redmi-note-10-pro-8gb-256gb-onyx-gray-eu-telefon-gsm-xiaomi-1_200.jpg",
-    "brand": ["POCO"],
+    "brand": "POCO",
     "price": 700,
     "screenSize": "6.7  1080х2388 , IPS",
     "memory": "ОЗУ 6 ГБ , 128 ГБ",
@@ -445,7 +445,7 @@
     "title": "telephone",
     "name": "Телефон",
     "img": "https://img.5element.by/import/images/ut/goods/good_ea3e93ab-a6cf-11ed-bb92-005056012465/-1_200.jpg",
-    "brand": ["realme"],
+    "brand": "realme",
     "price": 800,
     "screenSize": "6.8 1440x3088",
     "memory": "ОЗУ 12ГБ, 512ГБ",
@@ -456,10 +456,10 @@
     "title": "telephone",
     "name": "Телефон",
     "img": "https://img.5element.by/import/images/ut/goods/good_b5813643-828d-11ed-bb97-0050560120e8/-1_200.jpg",
-    "brand": ["TECNO"],
+    "brand": "TECNO",
     "price": 900,
     "screenSize": "6.1 1170x2532 , OLED",
-    "memory": " ОЗУ 6 ГБ , 256 ГБ",
+    "memory": "ОЗУ 6 ГБ , 256 ГБ",
     "cpu": "Apple A15 Bionic 3.23 ГГц"
 },
 {   
@@ -467,7 +467,7 @@
     "title": "telephone",
     "name": "Телефон",
     "img": "https://img.5element.by/import/images/ut/goods/good_81ac8c4d-3fc1-11ed-bb95-0050560120e8/iphone-x-b-u-64gb-space-gray-telefon-gsm-apple-2bmqac2-1_200.jpg",
-    "brand": ["Sony"],
+    "brand": "Sony",
     "price": 100,
     "screenSize": "6.55 2400х1080 , AMOLED",
     "memory": "ОЗУ 8 ГБ , 256 ГБ",
@@ -478,10 +478,10 @@
     "title": "telephone",
     "name": "Телефон",
     "img": "https://img.5element.by/import/images/ut/goods/good_cfb97030-6684-11ed-bb95-0050560120e8/-1_200.jpg",
-    "brand": ["vivo"],
+    "brand": "vivo",
     "price": 200,
     "screenSize": "6.7 1080х2388 , IPS",
-    "memory": " ОЗУ 6 ГБ , 128 ГБ",
+    "memory": "ОЗУ 6 ГБ , 128 ГБ",
     "cpu": "MediaTek Helio G88 2.0 ГГц"
 },
 {   
@@ -489,7 +489,7 @@
     "title": "telephone",
     "name": "Телефон",
     "img": "https://img.5element.by/import/images/ut/goods/good_889aec71-fe89-11ec-bb95-0050560120e8/redmi-10-2022-4gb-128gb-sea-blue-eu-telefon-gsm-xiaomi-1_200.jpg",
-    "brand": ["Infinix"],
+    "brand": "Infinix",
     "price": 300,
     "screenSize": "6.1 1170x2532 , OLED",
     "memory": "ОЗУ 6 ГБ , 256 ГБ",
@@ -500,7 +500,7 @@
     "title": "telephone",
     "name": "Телефон",
     "img": "https://img.5element.by/import/images/ut/goods/good_65783637-752f-11ed-bb95-0050560120e8/redmi-note-10-pro-8gb-256gb-onyx-gray-eu-telefon-gsm-xiaomi-1_200.jpg",
-    "brand": ["TCL"],
+    "brand": "TCL",
     "price": 400,
     "screenSize": "6.7  1080х2388 , IPS",
     "memory": "ОЗУ 6 ГБ , 128 ГБ",
@@ -511,7 +511,7 @@
     "title": "telephone",
     "name": "Телефон",
     "img": "https://img.5element.by/import/images/ut/goods/good_ea3e93ab-a6cf-11ed-bb92-005056012465/-1_200.jpg",
-    "brand": ["ZTE"],
+    "brand": "ZTE",
     "price": 500,
     "screenSize": "6.8 1440x3088",
     "memory": "ОЗУ 12ГБ, 512ГБ",
@@ -522,10 +522,10 @@
     "title": "telephone",
     "name": "Телефон",
     "img": "https://img.5element.by/import/images/ut/goods/good_b5813643-828d-11ed-bb97-0050560120e8/-1_200.jpg",
-    "brand": ["iPhone 11"],
+    "brand": "iPhone 11",
     "price": 600,
     "screenSize": "6.1 1170x2532 , OLED",
-    "memory": " ОЗУ 6 ГБ , 256 ГБ",
+    "memory": "ОЗУ 6 ГБ , 256 ГБ",
     "cpu": "Apple A15 Bionic 3.23 ГГц"
 },
 {   
@@ -533,7 +533,7 @@
     "title": "telephone",
     "name": "Телефон",
     "img": "https://img.5element.by/import/images/ut/goods/good_81ac8c4d-3fc1-11ed-bb95-0050560120e8/iphone-x-b-u-64gb-space-gray-telefon-gsm-apple-2bmqac2-1_200.jpg",
-    "brand": ["iPhone 14 Prо Max"],
+    "brand": "iPhone 14 Prо Max",
     "price": 700,
     "screenSize": "6.55 2400х1080 , AMOLED",
     "memory": "ОЗУ 8 ГБ , 256 ГБ",
@@ -544,10 +544,10 @@
     "title": "telephone",
     "name": "Телефон",
     "img": "https://img.5element.by/import/images/ut/goods/good_cfb97030-6684-11ed-bb95-0050560120e8/-1_200.jpg",
-    "brand": ["iPhone 14 Prо Max"],
+    "brand": "iPhone 14 Prо Max",
     "price": 800,
     "screenSize": "6.7 1080х2388 , IPS",
-    "memory": " ОЗУ 6 ГБ , 128 ГБ",
+    "memory": "ОЗУ 6 ГБ , 128 ГБ",
     "cpu": "MediaTek Helio G88 2.0 ГГц"
 },
 {   
@@ -555,7 +555,7 @@
     "title": "telephone",
     "name": "Телефон",
     "img": "https://img.5element.by/import/images/ut/goods/good_889aec71-fe89-11ec-bb95-0050560120e8/redmi-10-2022-4gb-128gb-sea-blue-eu-telefon-gsm-xiaomi-1_200.jpg",
-    "brand": ["Xiaomi Redmi 10C"],
+    "brand": "Xiaomi Redmi 10C",
     "price": 900,
     "screenSize": "6.1 1170x2532 , OLED",
     "memory": "ОЗУ 6 ГБ , 256 ГБ",
@@ -566,7 +566,7 @@
     "title": "telephone",
     "name": "Телефон",
     "img": "https://img.5element.by/import/images/ut/goods/good_65783637-752f-11ed-bb95-0050560120e8/redmi-note-10-pro-8gb-256gb-onyx-gray-eu-telefon-gsm-xiaomi-1_200.jpg",
-    "brand": ["Samsung Galaxy A32"],
+    "brand": "Samsung Galaxy A32",
     "price": 100,
     "screenSize": "6.7  1080х2388 , IPS",
     "memory": "ОЗУ 6 ГБ , 128 ГБ",
@@ -577,7 +577,7 @@
     "title": "telephone",
     "name": "Телефон",
     "img": "https://img.5element.by/import/images/ut/goods/good_ea3e93ab-a6cf-11ed-bb92-005056012465/-1_200.jpg",
-    "brand": ["Xiaomi Redmi 9A Max"],
+    "brand": "Xiaomi Redmi 9A Max",
     "price": 200,
     "screenSize": "6.8 1440x3088",
     "memory": "ОЗУ 12ГБ, 512ГБ",
@@ -588,10 +588,10 @@
     "title": "telephone",
     "name": "Телефон",
     "img": "https://img.5element.by/import/images/ut/goods/good_b5813643-828d-11ed-bb97-0050560120e8/-1_200.jpg",
-    "brand": ["Samsung Galaxy S23"],
+    "brand": "Samsung Galaxy S23",
     "price": 300,
     "screenSize": "6.1 1170x2532 , OLED",
-    "memory": " ОЗУ 6 ГБ , 256 ГБ",
+    "memory": "ОЗУ 6 ГБ , 256 ГБ",
     "cpu": "Apple A15 Bionic 3.23 ГГц"
 },
 {   
@@ -599,7 +599,7 @@
     "title": "telephone",
     "name": "Телефон",
     "img": "https://img.5element.by/import/images/ut/goods/good_81ac8c4d-3fc1-11ed-bb95-0050560120e8/iphone-x-b-u-64gb-space-gray-telefon-gsm-apple-2bmqac2-1_200.jpg",
-    "brand": ["Huawei nova Y70"],
+    "brand": "Huawei nova Y70",
     "price": 900,
     "screenSize": "6.1 1170x2532 , OLED",
     "memory": "ОЗУ 6 ГБ , 256 ГБ",
@@ -610,7 +610,7 @@
     "title": "telephone",
     "name": "Телефон",
     "img": "https://img.5element.by/import/images/ut/goods/good_889aec71-fe89-11ec-bb95-0050560120e8/redmi-10-2022-4gb-128gb-sea-blue-eu-telefon-gsm-xiaomi-1_200.jpg",
-    "brand": ["Samsung Galaxy"],
+    "brand": "Samsung Galaxy",
     "price": 500,
     "screenSize": "6.67 1080x2400 , AMOLED",
     "memory": "ОЗУ 8 ГБ , 256 ГБ",
@@ -621,7 +621,7 @@
     "title": "telephone",
     "name": "Телефон",
     "img": "https://img.5element.by/import/images/ut/goods/good_de3b215f-a6cf-11ed-bb92-005056012465/-1_200.jpg",
-    "brand": ["realme 10"],
+    "brand": "realme 10",
     "price": 600,
     "screenSize": "6.82 720x1640 , IPS",
     "memory": "ОЗУ 4 ГБ , 128 ГБ",
@@ -632,7 +632,7 @@
     "title": "telephone",
     "name": "Телефон",
     "img": "https://img.5element.by/import/images/ut/goods/good_65783637-752f-11ed-bb95-0050560120e8/redmi-note-10-pro-8gb-256gb-onyx-gray-eu-telefon-gsm-xiaomi-1_200.jpg",
-    "brand": ["realme 9"],
+    "brand": "realme 9",
     "price": 700,
     "screenSize": "6.7  1080х2388 , IPS",
     "memory": "ОЗУ 6 ГБ , 128 ГБ",
@@ -643,7 +643,7 @@
     "title": "telephone",
     "name": "Телефон",
     "img": "https://img.5element.by/import/images/ut/goods/good_ea3e93ab-a6cf-11ed-bb92-005056012465/-1_200.jpg",
-    "brand": ["vivo Y53s"],
+    "brand": "vivo Y53s",
     "price": 800,
     "screenSize": "6.8 1440x3088",
     "memory": "ОЗУ 12ГБ, 512ГБ",
@@ -654,7 +654,7 @@
     "title": "telephone",
     "name": "Телефон",
     "img": "https://img.5element.by/import/images/ut/goods/good_b5813643-828d-11ed-bb97-0050560120e8/-1_200.jpg",
-    "brand": ["realme C11"],
+    "brand": "realme C11",
     "price": 900,
     "screenSize": "6.1 1170x2532 , OLED",
     "memory": "ОЗУ 6 ГБ , 256 ГБ",
@@ -682,7 +682,7 @@
    "img": "https://img.5element.by/import/images/ut/goods/good_96a4a21e-511d-11ed-bb95-0050560120e8/-2_200.jpg",
    "brand": "Lenovo",
    "price": 200,
-   "screenSize": " 16.0 2560х1600 px, LED 165 Гц",
+   "screenSize": "16.0 2560х1600 px, LED 165 Гц",
    "memory": "ОЗУ 8 ГБ DDR4 , SSD 512 ГБ",
    "cpu": "AMD Ryzen 9 6900HX 8 -ядерный, 3.3 ГГц - 4.9 ГГц, Rembrandt",
    "videoCard": "Дискретная NVIDIA GeForce RTX 3080 Ti 16 ГБ GDDR6"
@@ -745,7 +745,7 @@
    "screenSize": "15.6 1920x1080 px, IPS 60 Гц",
    "memory": "ОЗУ 8 ГБ DDR4 , SSD 256 ГБ",
    "cpu": "Intel Core-i5 11260H 6 -ядерный, 2.6 ГГц - 4.4 ГГц, Tiger Lake",
-   "videoCard": " Intel Core-i5 11400H 6 -ядерный, 2.7 ГГц - 4.5 ГГц, Tiger Lake"
+   "videoCard": "Intel Core-i5 11400H 6 -ядерный, 2.7 ГГц - 4.5 ГГц, Tiger Lake"
 },
 {   
    "id":71,
@@ -781,7 +781,7 @@
    "screenSize": "4.0 1920x1080 px, TN+Film 60 Гц",
    "memory": "ОЗУ 8 ГБ DDR4 , SSD 256 ГБ",
    "cpu": "Intel Pentium Silver N5030 4 -ядерный, 1.1 ГГц - 3.1 ГГц, Gemini Lake R",
-   "videoCard": " Intel Core-i5 11320H 4 -ядерный, 3.2 ГГц - 4.5 ГГц, Tiger Lake"
+   "videoCard": "Intel Core-i5 11320H 4 -ядерный, 3.2 ГГц - 4.5 ГГц, Tiger Lake"
 },
 
 
@@ -1153,5 +1153,5 @@
 "brand": "SJCAM",
 "price": 400
 }
-  ]
+  
 }

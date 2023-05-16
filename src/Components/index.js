@@ -19,6 +19,7 @@ import Delivery from "./Header/Delivery";
 import Service from "./Header/Service";
 import Contacts from "./Header/Contacts";
 import Desing from "./Header/Desing";
+import Filter from "./filter/Filter";
 
 export {
   Header,
@@ -42,4 +43,5 @@ export {
   Service,
   Contacts,
   Desing,
+  Filter,
 };

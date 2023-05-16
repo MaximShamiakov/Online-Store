@@ -31,15 +31,15 @@ import {
 function App() {
   const dispatch = useDispatch();
   const itemsModels = useSelector(({ models }) => models.items);
-
   const categoryNumber = useSelector(({ category }) => category.number);
-  const { sortBy } = useSelector(({ filters }) => filters);
+  const { sortBy } = useSelector(({ sorts }) => sorts);
   const onSelectCategory = React.useCallback((index) => {
     dispatch(setCategory(index));
   });
+
   React.useEffect(() => {
     dispatch(fetchModels(sortBy));
-  }, [sortBy]);
+  }, []);
 
   const handeleAddModelsToCart = (obj) => {
     dispatch(addModelsToCart(obj));

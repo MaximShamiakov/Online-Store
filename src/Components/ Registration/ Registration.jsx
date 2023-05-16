@@ -12,9 +12,7 @@ export default function  Registration() {
     "logo-google",
     "logo-skype"
   ]
-  
-  const classNameDescription = "description-registration"
-  const classNameText = "home-header-information"
+
 
   return (
     <div className="main">
@@ -27,10 +25,10 @@ export default function  Registration() {
             <Routes>
                 <Route path="/*" element={<StoreInformation icons={icons}/>} />
                 <Route path ="regBtnLearnMore/*" element={<RegBtnLearnMore icons={icons}/>} />
-                <Route path="delivery" element={<Delivery className={classNameDescription} classNameText={classNameText}/>} />
-                <Route path="service" element={<Service className={classNameDescription} classNameText={classNameText}/>} />
-                <Route path="contacts" element={<Contacts className={classNameDescription} classNameText={classNameText}/>} />
-                <Route path="desing" element={<Desing className={classNameDescription} classNameText={classNameText}/>}/>
+                <Route path="delivery" element={<Delivery className={"description-registration"} classNameText={"home-header-information"}/>} />
+                <Route path="service" element={<Service className={"description-registration"} classNameText={"home-header-information"}/>} />
+                <Route path="contacts" element={<Contacts className={"description-registration"} classNameText={"home-header-information"}/>} />
+                <Route path="desing" element={<Desing className={"description-registration"} classNameText={"home-header-information"}/>}/>
             </Routes>
         </div>
     </div>

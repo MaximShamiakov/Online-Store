@@ -8,7 +8,9 @@ export default function Input(props) {
           className={props.classInput}
           type={props.type}
           name=""
-          placeholder= {props.placeholder}
+          placeholder={props.placeholder}
+          value={props.value}
+          onChange={props.onChange}
               />
     </div>
   )
