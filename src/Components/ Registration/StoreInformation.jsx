@@ -1,6 +1,6 @@
 import React from 'react'
 import { Routes, Route, Link } from 'react-router-dom'
-import {Button, FormRegistration, FormAuthorization} from "../index"
+import {Button, RegistrationForm, AuthenticationForm} from "../index"
 
 
 export default function StoreInformation(props) {
@@ -29,10 +29,10 @@ export default function StoreInformation(props) {
         </div>
         <div className="form-registration-authorization">
             <Routes>
-                <Route path='/' element={<FormRegistration icons={props.icons}/>}/>
-                <Route path='authorization' element={<FormAuthorization icons={props.icons}/>}/>
+                <Route path='/' element={<RegistrationForm icons={props.icons}/>}/>
+                <Route path='authorization' element={<AuthenticationForm icons={props.icons}/>}/>
             </Routes>
-          </div>   
+          </div>
     </div>
   )
 }

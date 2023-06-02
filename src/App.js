@@ -16,9 +16,7 @@ import {
 import { Routes, Route } from "react-router-dom";
 import "./style/app.css";
 import "./style/styles_shopMax.css";
-
 import { useSelector, useDispatch } from "react-redux";
-
 import { setCategory } from "./redux/actions/category";
 import { fetchModels } from "./redux/actions/models";
 import { addModelsToCart } from "./redux/actions/cart";
@@ -62,7 +60,6 @@ function App() {
     <div className="main">
       <div className="wrap">
         <Header />
-
         <div className="products">
           <div className="cont product">
             <Product

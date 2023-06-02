@@ -11,8 +11,8 @@ import Logo from "./Header/Logo/Logo";
 import VisiblePopup from "./Product/VisiblePopup/VisiblePopup";
 import StateProducts from "./State/StateProducts";
 import Registration from "./ Registration/ Registration";
-import FormAuthorization from "./ Registration/FormAuthorization";
-import FormRegistration from "./ Registration/FormRegistration";
+import AuthenticationForm from "./ Registration/AuthenticationForm";
+import RegistrationForm from "./ Registration/RegistrationForm";
 import RegBtnLearnMore from "./ Registration/RegBtnLearnMore";
 import StoreInformation from "./ Registration/StoreInformation";
 import Delivery from "./Header/Delivery";
@@ -35,8 +35,8 @@ export {
   StateProducts,
   ComponentsBasket,
   Registration,
-  FormAuthorization,
-  FormRegistration,
+  AuthenticationForm,
+  RegistrationForm,
   StoreInformation,
   RegBtnLearnMore,
   Delivery,

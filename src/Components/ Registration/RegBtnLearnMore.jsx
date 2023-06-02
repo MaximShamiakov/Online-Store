@@ -1,5 +1,5 @@
 import React from 'react'
-import {Button, FormRegistration, FormAuthorization} from "../index"
+import {Button, RegistrationForm, AuthenticationForm} from "../index"
 import { Routes, Route, Link } from 'react-router-dom'
 
 export default function RegBtnLearnMore(props) {
@@ -38,8 +38,8 @@ export default function RegBtnLearnMore(props) {
         </div>
         <div className="form-registration-authorization">
             <Routes>
-                <Route path='/' element={<FormRegistration icons={props.icons}/>}/>
-                <Route path='authorization' element={<FormAuthorization icons={props.icons}/>}/>
+                <Route path='/' element={<RegistrationForm icons={props.icons}/>}/>
+                <Route path='authorization' element={<AuthenticationForm icons={props.icons}/>}/>
             </Routes>
         </div>
     </div>

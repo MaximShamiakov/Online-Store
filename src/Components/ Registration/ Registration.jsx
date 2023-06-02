@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import { Link } from 'react-router-dom';
 
 
+
 export default function  Registration() {
   const icons = [
     "logo-facebook", "logo-instagram",
@@ -12,6 +13,8 @@ export default function  Registration() {
     "logo-google",
     "logo-skype"
   ]
+
+
 
 
   return (
