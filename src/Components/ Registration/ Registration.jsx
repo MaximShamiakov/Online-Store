@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 
 
-export default function  Registration() {
+export default function Registration() {
   const icons = [
     "logo-facebook", "logo-instagram",
     "logo-twitter",

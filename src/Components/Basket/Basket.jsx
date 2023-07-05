@@ -4,6 +4,7 @@ import {Button} from '..'
 import { useSelector } from 'react-redux';
 
 
+
 export default function Basket(props) {
   const {totalPrice, totalCount, items}= useSelector(({cart})=> cart)
   const addedModels = Object.keys(items).map(key =>{
@@ -11,6 +12,8 @@ export default function Basket(props) {
       items[key].items[0]
     )
   })
+
+
 
   const handeleRemoveClick = (id)=>{
     props.onRemove(id)

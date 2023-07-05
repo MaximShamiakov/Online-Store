@@ -1,41 +1,35 @@
 import React, {useState} from "react"
 import { Link } from "react-router-dom"
 import {Button} from "../index"
+import axios from "axios";
+import { addModelsToCart } from "../../redux/actions/cart";
+import { useSelector, useDispatch } from "react-redux";
+
 export default function AuthenticationForm(props) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const dispatch = useDispatch()
   
-  // async эта функция гарантирует всегда возвращать промисы. 
-    const handleSubmit = async (event) => {
-    event.preventDefault();
-
-    const user = {
-      email,
-      password
-    };
-
+  const handleSubmit = async (e) => {
+    e.preventDefault()
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/token/', {
-        // await После завершения асинхронной операции оператор await возвращает результат операции, если таковой имеется.
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(user)
-      });
-
-      if (!response.ok) {
-        throw new Error('Ошибка при аутентификации');
+      const res =  await axios.post("http://127.0.0.1:8000/new_login/", { email, password })
+      if (res.status !== 200){
+        alert('не верный логин или пароль')
       }
-
-      const data = await response.json();
-      localStorage.setItem('access_token', data.access);
-      localStorage.setItem('refresh_token', data.refresh);
-      window.location.href = '/userPage/mainPage';
-    } catch (error) {
-      console.error(error);
+      else {
+        localStorage.setItem('name', res.data.name)
+        localStorage.setItem('key', res.data.key)
+        window.location.href = "/userPage/mainPage"
+        res.data.products.forEach(function(product) {
+          const obj = {'id': product.idProduct, 'name': product.name, 'img': product.img, 'brand': product.brand, 'price': product.price}
+          dispatch(addModelsToCart(obj))
+        });
+      }
+    }catch (err) {
+      console.log(err)
     }
-  };
+  }
   
 
   return (
@@ -64,3 +58,4 @@ export default function AuthenticationForm(props) {
     </form>
   )
 }
+

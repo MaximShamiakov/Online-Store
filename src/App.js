@@ -39,27 +39,32 @@ function App() {
     dispatch(fetchModels(sortBy));
   }, []);
 
-  const handeleAddModelsToCart = (obj) => {
+  const handeleAddModelsToCart = async (obj) => {
     dispatch(addModelsToCart(obj));
+    console.log(obj);
   };
 
   const onRemoveItem = (id) => {
     dispatch(removeCartItem(id));
+    console.log("удаление товара id-", id);
   };
   const onPlusItem = (id) => {
     dispatch(plusCartItem(id));
+    console.log("+ товара id-", id);
   };
   const onMinusItem = (id) => {
     dispatch(minusCartItem(id));
+    console.log("- товара id-", id);
   };
 
   const classNameDescription = "description";
   const classNameText = "text-reg-header-information ";
-
+  const name = localStorage.getItem("name");
   return (
     <div className="main">
       <div className="wrap">
         <Header />
+        <div>Привет {name}!</div>
         <div className="products">
           <div className="cont product">
             <Product

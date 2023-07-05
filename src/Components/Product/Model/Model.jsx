@@ -1,6 +1,6 @@
 import React from 'react'
 import {Button, VisiblePopup, Filter} from '../..'
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setSortBy } from '../../../redux/actions/sort';
 
 
@@ -19,12 +19,11 @@ export default function ModelTV(props) {
     "photoVideo"
   ]
   const sortBy = props.sortBy
-  console.log(sortBy)
   const dispatch = useDispatch();
   const onSelectSortType = React.useCallback((type) => {
-      console.log(type)
       dispatch(setSortBy(type));
   });
+
   
 const onAddModels = (el)=>{
   const obj = {

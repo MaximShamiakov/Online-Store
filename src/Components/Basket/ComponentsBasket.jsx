@@ -25,7 +25,7 @@ export default function ComponentsBasket(props) {
         <div className="cont description">
             <div className="form">
                 <form className="input-group">
-                  <div className='header-basket'>                 
+                  <div className='header-basket'>
                       <span className="cont component-basket">Количество-{totalCount}</span>
                       <span className="cont component-basket">Сумма-{totalPrice}$</span>
                   </div>
@@ -42,9 +42,9 @@ export default function ComponentsBasket(props) {
                               <h2 className="txt">Цена - <span>{obj.price}</span></h2>
                               <h2 className='txt'>Итог-{items[obj.id].totalPrice}$</h2>
                               <div className='plus-minus'>
-                                  <Button onClick={()=>handelePlusItem(obj.id)}  classBtn={'plus-minus-btn'} propsText={'+'}/>
+                                  <Button onClick={()=>handelePlusItem(obj.id)} classBtn={'plus-minus-btn'} propsText={'+'}/>
                                   <h2 className='txt'>{items[obj.id].items.length} шт </h2>
-                                  <Button onClick={()=>handeleMinusItem(obj.id)}  classBtn={'plus-minus-btn'} propsText={'-'}/>
+                                  <Button onClick={()=>handeleMinusItem(obj.id)} classBtn={'plus-minus-btn'} propsText={'-'}/>
                               </div>
                           </div>
                         
@@ -52,7 +52,7 @@ export default function ComponentsBasket(props) {
                             <Link to={"/userPage/orderForm"}>
                                 <Button classBtn={'basket-item-block-btn'} propsText={'Заказать'}/>
                             </Link>
-                                <Button onClick={()=>handeleRemoveClick(obj.id)}  classBtn={'basket-item-block-btn'} propsText={'Удалить'}/>
+                                <Button onClick={()=>handeleRemoveClick(obj.id)} classBtn={'basket-item-block-btn'} propsText={'Удалить'}/>
                         </div>
                       
                     </div>
