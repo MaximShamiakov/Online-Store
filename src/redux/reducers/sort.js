@@ -1,5 +1,3 @@
-// Reducer чистая функция хронится логика изменяющая фильтрацию
-
 const initialState = {
   sortBy: "popular",
 };

@@ -1,15 +1,12 @@
 import React from 'react'
-import { Routes, Route, Link } from 'react-router-dom'
-import {Button, RegistrationForm, AuthenticationForm} from "../index"
 
 
-export default function StoreInformation(props) {
+export default function MainInformation(props) {
 
   return (
-    <div className="registration-block">
-        <div className="cont block-of-text">
+        <div className={props.classNameProps}>
             <div className="text-reg">
-                <h1 className="text-big">Интернет-магазин & <br/><span>ShopMax</span> <br/>Бытовая техника</h1>
+                <h1 className="text-big">Интернет-магазин <br/><span>ShopMax</span> <br/>Бытовая техника</h1>
                 <p className="par">Интернет-магазин — сайт, торгующий товарами посредством сети Интернет. <br/> 
                 Позволяет пользователям онлайн, <br/>
                 в своём браузере или через мобильное приложение, <br/> 
@@ -21,18 +18,20 @@ export default function StoreInformation(props) {
                 продуктов и услуг фирмы, просматривать фотографии или изображения продуктов, <br/>
                 а также информацию о технических характеристиках продукта и ценах. <br/>
                 Интернет-магазины обычно позволяют покупателям использовать функции <br/>
-                «поиска», чтобы найти конкретные модели, бренды или предметы.</p>
-                <Link to={"regBtnLearnMore"}>
-                    <Button type={"submit"} classBtn={"cn"} propsText={"УЗНАТЬ БОЛЬШЕ"}/>   
-                </Link>
+                «поиска», чтобы найти конкретные модели, бренды или предметы.<br/>
+                Кроме того, интернет-магазины могут предлагать различные акции и скидки на товары,<br/>
+                а также бонусные программы для постоянных клиентов.<br/>
+                Они также могут предоставлять услуги по обмену и возврату товаров,<br/>
+                а также гарантийное обслуживание. Важно отметить,<br/>
+                что интернет-магазины обычно работают круглосуточно,<br/>
+                что позволяет клиентам делать покупки в удобное для них время.<br/>
+                В целом, интернет-магазины стали неотъемлемой частью современной коммерции и<br/>
+                обеспечивают удобство и доступность покупок для многих людей.</p>
             </div>
         </div>
-        <div className="form-registration-authorization">
-            <Routes>
-                <Route path='/' element={<RegistrationForm icons={props.icons}/>}/>
-                <Route path='authorization' element={<AuthenticationForm icons={props.icons}/>}/>
-            </Routes>
-          </div>
-    </div>
+
+
   )
 }
+
+

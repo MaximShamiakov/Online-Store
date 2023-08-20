@@ -5,17 +5,13 @@ const initialState = {
   totalPrice: 0,
   totalCount: 0,
 };
-// console.log(initialState.items);
-
 const getTotalPrice = (arr) => arr.reduce((sum, obj) => obj.price + sum, 0);
-
 const _get = (obj, path) => {
   const [firstKey, ...keys] = path.split(".");
   return keys.reduce((val, key) => {
     return val[key];
   }, obj[firstKey]);
 };
-
 const getTotalSum = (obj, path) => {
   return Object.values(obj).reduce((sum, obj) => {
     const value = _get(obj, path);
@@ -26,7 +22,6 @@ const key = localStorage.getItem("key");
 const cart = (state = initialState, action) => {
   switch (action.type) {
     case "ADD_MODELS_CART": {
-      // console.log(action.payload);
       const currentModelsItems = !state.items[action.payload.id]
         ? [action.payload]
         : [...state.items[action.payload.id].items, action.payload];
@@ -37,31 +32,8 @@ const cart = (state = initialState, action) => {
           totalPrice: getTotalPrice(currentModelsItems),
         },
       };
-      console.log(newItems[0]);
       const totalCount = getTotalSum(newItems, "items.length");
       const totalPrice = getTotalSum(newItems, "totalPrice");
-      // console.log(totalPrice);
-      const product_id = action.payload.id;
-      // console.log(action.payload.id);
-      const quantity = currentModelsItems.length;
-      // console.log(currentModelsItems.length);
-      axios
-        .post("http://127.0.0.1:8000/basket/", {
-          product_id,
-          quantity,
-          key,
-        })
-        .then((res) => {
-          if (res.status !== 200) {
-            alert("что-то пошло не так в cart");
-          } else {
-            alert("добавилось в корзину cart");
-          }
-        })
-        .catch((err) => {
-          alert(err);
-        });
-
       return {
         ...state,
         items: newItems,
@@ -116,14 +88,10 @@ const cart = (state = initialState, action) => {
           totalPrice: getTotalPrice(newObjItems),
         },
       };
-
       const totalCount = getTotalSum(newItems, "items.length");
       const totalPrice = getTotalSum(newItems, "totalPrice");
-
       const quantity = newObjItems.length;
-      // console.log(quantity);
       const product_id = action.payload;
-      // console.log(product_id);
       axios
         .post("http://127.0.0.1:8000/basket/", {
           key,
@@ -166,9 +134,7 @@ const cart = (state = initialState, action) => {
       const totalCount = getTotalSum(newItems, "items.length");
       const totalPrice = getTotalSum(newItems, "totalPrice");
       const quantity = newObjItems.length;
-      // console.log(quantity);
       const product_id = action.payload;
-      // console.log(product_id);
       axios
         .post("http://127.0.0.1:8000/basket/", {
           key,

@@ -7,10 +7,11 @@ export default function Input(props) {
         <input
           className={props.classInput}
           type={props.type}
-          name=""
+          name={props.name}
           placeholder={props.placeholder}
           value={props.value}
           onChange={props.onChange}
+          
               />
     </div>
   )

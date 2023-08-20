@@ -1,39 +1,53 @@
 import React from 'react'
 import Header from '../Header/Header'
-import {RegBtnLearnMore, StoreInformation, Delivery, Service, Contacts, Desing} from "../index"
+import {Delivery, Service, Contacts, Desing, MainInformation, RegistrationForm, AuthenticationForm} from "../index"
 import { Route, Routes } from "react-router-dom";
-import { Link } from 'react-router-dom';
-
+import { useState } from 'react';
 
 
 export default function Registration() {
   const icons = [
-    "logo-facebook", "logo-instagram",
+    "logo-facebook",
+    "logo-instagram",
     "logo-twitter",
     "logo-google",
     "logo-skype"
   ]
 
-
-
+  const [activeForm, setActiveForm] = useState('registration');
 
   return (
     <div className="main">
         <div className="wrap">
             <Header />
-            <Link to={'/'}>
-                <div className='menuText
-                '>../ на главную</div>
-            </Link>
-            <Routes>
-                <Route path="/*" element={<StoreInformation icons={icons}/>} />
-                <Route path ="regBtnLearnMore/*" element={<RegBtnLearnMore icons={icons}/>} />
-                <Route path="delivery" element={<Delivery className={"description-registration"} classNameText={"home-header-information"}/>} />
-                <Route path="service" element={<Service className={"description-registration"} classNameText={"home-header-information"}/>} />
-                <Route path="contacts" element={<Contacts className={"description-registration"} classNameText={"home-header-information"}/>} />
-                <Route path="desing" element={<Desing className={"description-registration"} classNameText={"home-header-information"}/>}/>
-            </Routes>
+            <div className="registration-block">
+              <Routes>
+                  <Route path="/*" element={<MainInformation classNameProps={'block-of-text'} />} />
+                  <Route path="delivery/*" element={<Delivery classNameProps={'block-of-text'}/>} />
+                  <Route path="service/*" element={<Service classNameProps={'block-of-text'}/> } />
+                  <Route path="contacts/*" element={<Contacts classNameProps={'block-of-text'}/>} />
+                  <Route path="desing/*" element={<Desing classNameProps={'block-of-text'}/>}/>
+              </Routes>
+              <div className="block-form-registration-authorization">
+                <div className="form-registration-authorization">
+                  <div className='login-and-register-btn'>
+                    {activeForm === 'registration' ? (
+                        <button className="btn-registration" onClick={() => setActiveForm('authentication')}>Вход</button>
+                      ) : (
+                        <button className="btn-registration" onClick={() => setActiveForm('registration')}>Регистрация</button>
+                      )}
+                  </div>
+
+                  {activeForm === 'registration' ? (
+                    <RegistrationForm icons={icons} />
+                  ) : (
+                    <AuthenticationForm icons={icons} />
+                  )}
+                </div>
+              </div>
+            </div>
         </div>
     </div>
   )
 }
+

@@ -1,5 +1,6 @@
 import React from 'react'
 import {Button, Input, MenuHeader, Logo} from '..'
+import { Link } from 'react-router-dom'
 
 
 const hello = ()=> {
@@ -9,7 +10,9 @@ const hello = ()=> {
 const Header =()=> {
   return (
     <div className="header">
+      <Link to={'/'}>
             <Logo ShopMax = {'ShopMax'}/>
+      </Link>
         <MenuHeader onClickMenuHeader={(text) => {
             console.log(text);
           }} />

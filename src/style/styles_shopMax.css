@@ -1,7 +1,7 @@
-
 body{
     background:url(../Components/img/thumb-1920-464234.jpg) 50%/cover no-repeat fixed;
 }
+
 .main {
     display: flex;
     min-height: 100%;
@@ -11,63 +11,72 @@ body{
     position: absolute;
     height: 100vh;
 }
+
 ::-webkit-scrollbar {
     width: 5px;
 }
+
 ::-webkit-scrollbar-thumb{
     background:#fff;
     border-radius:10px;
 }
+
 .wrap{
     display: flex;
     flex-direction: column;
-    width: 1200px;
+    align-items: center;
+    width: 1600px;
     height: auto;
     margin: 50px auto;
 }
-.header{
+
+.header {
     display: flex;
-    align-items:center;
-    width: auto;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
     height: 100px;
-    margin: 0px;
 }
+
 .cont{
-    flex: 1 1 auto;
     margin: 0 1px;
 }
+
 .icon{
     display: flex;
     justify-content: center;
-    width: 200px;
-    height: 70px;
+    height: 100%;
+    align-items:center;
 }
+
 .logo{
     display: flex;
     align-items: center;
-    font-size: 45px;
+    font-size: 60px;
     color: #ff7200;
     font-family: Arial;
 }
+
 .menu{
+    flex-basis: 25%;
     display: flex;
+    justify-content: center;
     align-items: center;
-    width: 550px;
-    float: left;
-    height: 70px;
-    margin: auto;
 }
+
 .menu ul{
     display: flex;
     justify-content: center;
     align-items:center;
 }
+
 .menu ul li{
     list-style: none;
-    padding: 31px;
-    font-size:18px;
+    padding: 30px;
+    font-size:25px;
     align-items:center;
 }
+
 .menuText {
     text-decoration: none;
     color:#fff;
@@ -76,70 +85,66 @@ body{
     transition: 0.3s ease-in-out;
     cursor: pointer;
 }
+
 .menuText:hover{
     color:#ff7200;
 }
+
 .search{
     display: flex;
     justify-content: center;
-    width: 320px;
-    height: 70px;
+    align-items:center;
 }
 
-
 .srch{
-    padding: 5px ;
+    padding: 18px ;
     display: flex;
     text-align: center;
     justify-content: center;
     align-items: center;
     font-family: 'Times New Roman';
-    width: 200px;
-    height: 40px;
     background:transparent;
     border:1px solid #ff7200;
-    margin-top: 13px;
     border-right:none;
-    font-size: 16px;
-    border-bottom-left-radius: 5px;
-    border-top-left-radius: 5px;
+    font-size: 18px;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
     color: #fff;
 }
 
-
 .btn{
+    padding: 18px;
     display: flex;
     text-align: center;
     justify-content: center;
     align-items: center;
-    width: 120px;
-    height: 40px;
+    width: 140px;
     border:none;
-    margin-top: 14px;
     color:#fff;
-    font-size: 18px;
-    border-bottom-right-radius: 5px;
-    border-top-right-radius: 5px;
+    font-size: 19px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
     background: linear-gradient(to right, #ff105f, #ff7200);
     cursor: pointer;
 }
 
-
-
 .btn:focus{
     outline: none;
 }
+
 .srch:focus{
     outline:none;
 }
+
 .products{
     display: flex;
     flex-direction: row;
     align-items:center;
-    width: 1150px;
-    height: 80%;
-    margin: 25px;
+    width: 100%;
+    height: 90%;
+    min-height:0%;
 }
+
 .product{
     display: flex;
     flex-direction: row;
@@ -147,12 +152,14 @@ body{
     height: 90%;
     overflow: auto;
 }
+
 .column{
     display: flex;
     flex-direction:column;
     width: 100%;
     height: 100%;
 }
+
 .m{
     display: flex;
     flex-wrap: nowrap;
@@ -160,12 +167,14 @@ body{
     height: 100%;
     width: 100%;
 }
+
 .img-product{
     width: 15%;
     height:90%;
     background: linear-gradient(to top, rgba(243, 241, 241, 0.5)50%, rgba(243, 241, 241, 0.5)50%);
-    cursor: pointer;    
+    cursor: pointer;
 }
+
 .name-product{
     display: flex;
     flex-direction: column;
@@ -182,6 +191,7 @@ body{
     transition: 0.3s ease-in-out;
     cursor: pointer;
 }
+
 .name-product-active{
     display: flex;
     flex-direction: column;
@@ -191,15 +201,18 @@ body{
     height: 90%;
     background: linear-gradient(to top, rgba(100, 50, 50, 0.5)50%, rgba(100, 50, 50, 0.5)50%);
 }
+
 .name-product:hover{
     color:#ff7200;
 }
+
 .description{
     display:flex;
     flex-direction: row;
     width: 50%;
     height: 90%;
 }
+
 .form{
     width: 100%;
     height:100%;
@@ -207,32 +220,60 @@ body{
     overflow: hidden;
     overflow: auto;
     background: linear-gradient(to top, rgba(0,0,0,0.5)50%, rgba(0,0,0,0.5)50%);
+    margin-right: 4px;
 }
+
 .input-group{
-    position: relative;
-    width:100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
 }
+
+.all-order-form{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.product-categories{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
 .block-img-info{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items:center;
+    justify-content: center;
 }
+
 .block-product{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
     margin-top: 10px;
     height: 100%;
     width: 33%;
 }
+
 .tv{
     display: flex;
     align-items: center;
+    justify-content: space-between;
     width: 98%;
     height: 100%;
-    margin-left: 7px;
+    margin: auto;
 }
+
 .txt{
     margin-top: 5px;
-    padding-left: 15px;
     color:#fff;
     font-size: 13px;
     text-decoration: none;
@@ -240,30 +281,50 @@ body{
     font-weight: bold;
     padding-bottom: 5px;
 }
+
+.quantity-of-goods{
+    padding-left: 10px;
+    color:#fff;
+    font-size: 13px;
+    text-decoration: none;
+    font-family: Arial;
+    font-weight: bold;
+}
+
 .btn-basket{
     display: flex;
     text-align: center;
     justify-content: center;
+    text-align: center;
     align-items: center;
     width: 125px;
     height: 45px;
     border:none;
     margin-top: 5px;
     margin-bottom: 5px;
-    margin-left: 35px;
     color:#fff;
     font-size: 18px;
     border-radius: 5px;
     background: linear-gradient(to right, #ff105f, #ff7200);
     cursor: pointer;
 }
+
 .popup{
     display: flex;
     justify-content: flex-start;
+    width: 70%;
+    padding: 5px;
+    height: 40px;
+}
+
+.popup-filter{
+    display: flex;
+    justify-content: space-evenly;
     width: 100%;
     padding: 5px;
-    height: 40px;   
+    height: 40px;
 }
+
 .sort{
     color:#fff;
     padding: 5px;
@@ -271,15 +332,18 @@ body{
     cursor: pointer;
     transition: 0.3s ease-in-out;
 }
+
 .sort:hover{
     color:#ff7200;
 }
+
 .sortActiveName{
     color:#fff;
     padding: 5px;
     cursor: pointer;
     transition: 0.3s ease-in-out;
 }
+
 .sortСategories{
     color:#fff;
     padding: 5px;
@@ -289,9 +353,11 @@ body{
     margin-left: auto;
     margin-right: auto;
 }
+
 .sortСategories:hover{
     color:#ff7200;
 }
+
 .sortСategoriesActive{
     color:#ff7200;
     padding: 5px;
@@ -299,6 +365,7 @@ body{
     cursor: pointer;
     transition: 0.3s ease-in-out;
 }
+
 .basket-block{
     display: flex;
     flex-direction: column;
@@ -306,6 +373,7 @@ body{
     height: 90%;
     overflow: auto;
 }
+
 .form-card{
     width: 100%;
     height: 100%;
@@ -313,6 +381,13 @@ body{
     position: relative;
     overflow: auto;
 }
+
+.basket-header{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+}
+
 .toggle-btn-card-1 {
     display: flex;
     text-align: center;
@@ -329,6 +404,7 @@ body{
     cursor: pointer;
     margin-bottom: 10px;
 }
+
 .component-basket{
     display: flex;
     flex-direction: column;
@@ -340,8 +416,8 @@ body{
     font-family: Arial;
     font-weight: bold;
     cursor: pointer;
-    margin-bottom:10px ;
 }
+
 .component-basket2{
     display: flex;
     flex-direction: column;
@@ -358,9 +434,11 @@ body{
 
 .block-product-basket{
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding-bottom: 10px;
+    margin: 0px 10px 0px 10px;
 }
 
 .basket-item-block{
@@ -368,24 +446,35 @@ body{
     flex-direction: column;
     justify-content:center;
 }
+
 .basket-item-block-btn{
     display: flex;
     text-align: center;
     justify-content: center;
     align-items: center;
-    height: 30px;
+    height: 40px;
     width: 125px;
     border:none;
     margin-top: 5px;
     margin-bottom: 5px;
-    margin-left: 10px;
     color:#fff;
     font-size: 18px;
     border-radius: 5px;
     background: linear-gradient(to right, #ff105f, #ff7200);
-    cursor: pointer; 
+    cursor: pointer;
 }
+
+.shopping-cart{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
 .plus-minus-btn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
     height: 22px;
     width: 26px;
     border:none;
@@ -396,8 +485,9 @@ body{
     font-size: 18px;
     border-radius: 5px;
     background: linear-gradient(to right, #ff105f, #ff7200);
-    cursor: pointer; 
+    cursor: pointer;
 }
+
 .basket-item-block-btn2{
     height: 30px;
     width: 70px;
@@ -409,40 +499,62 @@ body{
     font-size: 18px;
     border-radius: 5px;
     background: linear-gradient(to right, #ff105f, #ff7200);
-    cursor: pointer; 
+    cursor: pointer;
 }
+
 .basket-item-block-btn3{
     height: 30px;
     width: 30px;
     border:none;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    margin-left: 10px;
-
     font-size: 18px;
-    cursor: pointer; 
+    cursor: pointer;
 }
+
 .info-product-basket{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center
+    align-items: center;
+    padding-bottom: 10px;
 }
+
+.product-orders-block{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+    padding-bottom: 10px;
+
+}
+
 .img-basket{
     display: flex;
     text-align: center;
-    width: 23%;
+    width: 30%;
     height: 100%;
-    margin-left: 7px;
-    margin-bottom: 5px;
 }
+
 .header-basket{
     display: flex;
-    justify-content: space-evenly
+    width: 100%;
+    justify-content: space-around;
 }
+
+.heading-number-sum{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin: 20px 0px 40px 0px;
+}
+
 .plus-minus{
     display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items:center;
 }
+
 .input-group-card{
     display: flex;
     flex-direction: column;
@@ -451,6 +563,7 @@ body{
     width: 100%;
     height: 90%;
 }
+
 .btn-back{
     display: flex;
     flex-direction: column;
@@ -458,6 +571,7 @@ body{
     justify-content: center;
     width: 100%;
 }
+
 .input-field{
     display: flex;
     flex-direction: column;
@@ -474,31 +588,53 @@ body{
     font-size: 24px;
     color:#fff;
 }
+
 .registration-block{
     display: flex;
     flex-direction: row;
     align-items:center;
-    width: 1150px;
-    height: 80%;
+    width: 100%;
+    height: 90%;
+    justify-content: center;
 }
+
+.home-block-of-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    height: 90%;
+    margin-right: 5px;
+    background: linear-gradient(to top, rgba(0,0,0,0.5)50%, rgba(0,0,0,0.5)50%);
+}
+
 .block-of-text{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: center;
     width: 70%;
     height: 90%;
 }
+
 .text-reg{
     margin: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
 }
+
 .text-reg .text-big{
-    width: 800px;
+    width: 100%;
+    height: 35%;
 }
+
 .text-reg .par{
-    width: 800px;
-    padding-left: 20px;
-    padding-bottom: 25px;
+    width: 100%;
+    height: 70%;
+    padding: 0px 0px 20px 20px;
     font-family: Arial;
-    letter-spacing: 1.2px;
+    font-size: 24px;
+    letter-spacing: 1.0px;
     line-height: 30px;
     color:#fff;
 }
@@ -507,7 +643,8 @@ body{
     font-family: 'Times New Roman';
     font-size: 50px;
     padding-left:20px;
-    letter-spacing: 2px;
+    margin-bottom: 10px;
+    letter-spacing: 4px;
     color:#fff;
 }
 
@@ -522,6 +659,7 @@ body{
     cursor: pointer;
     transition: .4s ease;
 }
+
 .text-reg .cn {
     text-decoration: none;
     color:#fff;
@@ -530,47 +668,74 @@ body{
     align-items: center;
     justify-content: center;
 }
+
 .text-big span{
     color:#ff7200;
     font-size: 60px;
 }
-.form-registration-authorization{
+
+.text-big-info span{
+    color:#ff7200;
+    font-size: 32px;
+}
+
+.block-form-registration-authorization{
     width: 30%;
+    height:90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-registration-authorization{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     height:75%;
     border-radius: 30px;
+    margin: 50px;
     position: relative;
-    overflow: hidden;
     overflow: auto;
     background: linear-gradient(to top, rgba(0,0,0,0.5)50%, rgba(0,0,0,0.5)50%);
 }
+
 .button-box {
     display: flex;
     justify-content: center;
-    width: 250px;
-    margin: 30px auto;
+    align-items:center;
+    text-align: center;
+    flex-direction: column;
 }
 
 .icons{
-    margin: 15px auto;
-    text-align: center;
-    margin-top: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0px;
 }
+
 .icons a{
     text-decoration: none;
     color:#fff;
     cursor: pointer;
+    flex: 1;
+    text-align: center;
+    margin: 0 10px;
 }
 
 .icons ion-icon{
     color:#fff;
     font-size: 50px;
-    padding-left: 14px;
-    padding-top: 5px;
+    padding-top: 10px;
     transition: 0.3s ease ;
 }
+
 .icons ion-icon:hover{
     color:#ff7200;
 }
+
 .btn-registration {
     display: flex;
     text-align: center;
@@ -579,7 +744,7 @@ body{
     width: 130px;
     height: 40px;
     border:none;
-    margin-top: 20px;
+    margin-top: 10px;
     color:#fff;
     font-size: 16px;
     border-radius:5px;
@@ -587,6 +752,7 @@ body{
     cursor: pointer;
     margin-bottom: 10px;
 }
+
 .btn-form-registration {
     display: flex;
     text-align: center;
@@ -595,7 +761,7 @@ body{
     width: 190px;
     height: 40px;
     border:none;
-    margin-top: 20px;
+    margin-top: 10px;
     color:#fff;
     font-size: 16px;
     border-radius:5px;
@@ -603,11 +769,9 @@ body{
     cursor: pointer;
     margin-bottom: 10px;
 }
+
 .registration-input-fields{
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     padding: 10px 0;
     border-left: 0;
     border-right: 0;
@@ -616,28 +780,25 @@ body{
     background: transparent;
     font-size: 24px;
     color:#fff;
-    margin-left: 15px;
     margin-bottom: 5px;
 }
-.login-Password {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 40px;
-}
+
 .checkbox{
-    margin: 25px 10px 30px 0;
+    margin: 0px 10px 0px 0;
 }
+
 .click-remember{
     color:#e4d2d2;
     font-size: 16px;
 }
+
 .block-checkbox{
     display:flex;
     flex-direction: row;
     justify-content: center;
     align-items: baseline;
-    margin-top: 15px;
 }
+
 .exit {
     text-decoration: none;
     color:#fff;
@@ -646,12 +807,15 @@ body{
     transition: 0.3s ease-in-out;
     cursor: pointer;
 }
+
 .exit:hover{
     color:#ff7200;
 }
+
 .text-reg-header-information .text-big-header-information{
     width: 550px;
 }
+
 .text-reg-header-information  .par{
     width: 550px;
     padding-left: 20px;
@@ -661,6 +825,7 @@ body{
     line-height: 30px;
     color:#fff;
 }
+
 .home-header-information  .par{
     width: 1195px;
     padding-left: 20px;
@@ -670,6 +835,7 @@ body{
     line-height: 30px;
     color:#fff;
 }
+
 .text-reg-header-information  h1 {
     font-family: 'Times New Roman';
     font-size: 50px;
@@ -677,6 +843,7 @@ body{
     letter-spacing: 2px;
     color:#fff;
 }
+
 .description-registration{
     display:flex;
     flex-direction: row;
@@ -685,34 +852,36 @@ body{
     margin-top: -13px;
     padding-top: 60px;
 }
+
 a {
     text-decoration: none;
    }
    .input-filter{
-    margin-left: 25px;
     padding: 5px ;
     display: flex;
     text-align: center;
     justify-content: center;
     align-items: center;
     font-family: 'Times New Roman';
-    width: 190px;
+    width: 260px;
     height: 30px;
     background:transparent;
     border:1px solid #ff7200;
-    font-size: 16px;
+    font-size: 22px;
     border-radius: 5px;
     color:#fff;
 }
+
 .input-filter:focus{
     outline:none;
 }
+
 .btn-filter {
     display: flex;
     text-align: center;
     justify-content: center;
     align-items: center;
-    width: 80px;
+    width: 150px;
     height: 30px;
     border:none;
     color:#fff;
@@ -720,5 +889,466 @@ a {
     border-radius:5px;
     background: linear-gradient(to right, #ff105f, #ff7200);
     cursor: pointer;
-    margin-left: 25px;
+}
+
+.username{
+    color: #ff7200;
+    font-size: 25px;
+}
+
+.data-input{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+@media screen and ( max-width: 1280px){
+    .menu ul li {
+        padding: 18px;
+    }
+
+    .registration-input-fields {
+        font-size: 20px;
+    }
+
+    .text-reg .text-big {
+        height: 40%;
+    }
+
+    .icons ion-icon {
+        font-size: 38px;
+    }
+
+    .login-and-register-btn{
+        height: 50px;
+    }
+
+    .main {
+        height: 100vh;
+      }
+    wrap {
+        width: 100%;
+    }
+    
+    .header {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .logo {
+        font-size: 40px;
+    }
+    
+    .menuText {
+        font-size: 22px;
+    }
+    
+    .srch {
+        font-size: 16px;
+        padding: 10px;
+    }
+    
+    .btn {
+        font-size: 20px;
+        padding: 8px;
+    }
+
+    .block-of-text {
+        width: 64%;
+        height: 90%;
+    }
+    
+    .block-form-registration-authorization {
+        width: 36%;
+        height: 90%;
+    }
+    
+    .text-reg {
+        margin: 50px 0px 50px 50px;
+    }
+    
+    .products {
+        width: 98%;
+    }
+    
+    .popup {
+        width: 80%;
+    }
+    
+    .input-filter {
+        width: 175px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .icons ion-icon {
+        font-size: 36px;
+    }
+
+    .registration-input-fields {
+        font-size: 16px;
+    }
+    
+    .main {
+        height: 100vh;
+      }
+    
+    .wrap {
+        width: 100%;
+    }
+    
+    .text-reg .text-big {
+        height: 20%;
+    }
+    
+    .header {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 100%;
+        height: auto;
+
+    }
+    
+    .logo {
+        font-size: 40px;
+    }
+    
+    .menuText {
+        font-size: 16px;
+    }
+    
+    .srch {
+        font-size: 18px;
+        padding: 13px;
+        width: 200px;
+    }
+    
+    .search {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 305px;
+    }
+    
+    .btn {
+        font-size: 16px;
+        padding: 15px;
+        width: 100px;
+    }
+    
+    .block-of-text {
+        width: 60%;
+        height: 100%;
+    }
+    
+    .block-form-registration-authorization {
+        margin: 0;
+        width: 36%;
+        height: 68%;
+    }
+    
+    .text-reg {
+        margin: 20px 0px 20px 10px;
+    }
+    
+    .products {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: center;
+        width: 96%;
+        height: 100%;
+        padding-right: 18px;
+    }
+    
+    .input-filter {
+        width: 140px;
+        font-size: 16px;
+    }
+    
+    .menu ul li {
+        padding: 22px;
+    }
+    
+    .block-product-basket {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 10px;
+    }
+    
+    .heading-number-sum {
+        margin: 10px 0px 15px 0px;
+    }
+    
+    .toggle-btn-card-1 {
+        width: 90px;
+    }
+    
+    .component-basket2 {
+        font-size: 13px;
+    }
+    
+    .txt {
+    padding-left: 10px;
+    }
+    
+    .info-product-basket {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 10px;
+    }
+    
+    .sort {
+        margin-left: 17px;
+    }
+    
+    .popup {
+        width: 100%;
+    }
+    
+    .btn-filter {
+        width: 100px;
+    }
+    
+    .form-registration-authorization {
+        margin: 0px;
+        height: 100%;
+    }
+    
+    .text-reg h1 {
+        font-size: 30px;
+        letter-spacing: 2px;
+    }
+    
+    .text-big span {
+        font-size: 40px;
+    }
+    
+    .registration-block {
+        padding-top: 10px;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .menu ul li {
+        padding: 5px;
+    }
+
+    .menuText {
+        font-size: 10px;
+    }
+    
+    .logo {
+        font-size: 30px;
+    }
+    
+    .wrap {
+        margin: 10px auto;
+    }
+    
+    .srch {
+        font-size: 14px;
+        padding: 8px;
+        width: 150px;
+    }
+    
+    .btn {
+        font-size: 8px;
+        padding: 12px;
+        width: 90px;
+    }
+    
+    .registration-block {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .block-of-text {
+        width: 100%;
+        height: 30%;
+    }
+    
+    .text-reg {
+        margin: 10px 0px 10px 0px;
+    }
+    
+    .text-reg .text-big {
+        height: 40%;
+    }
+    
+    .text-reg h1 {
+        font-size: 18px;
+    }
+    
+    .text-big span {
+        font-size: 20px;
+    }
+    
+    .text-reg .par {
+        padding: 0px 0px 0px 20px;
+        font-size: 12px;
+        height: 50%;
+    }
+    
+    .block-form-registration-authorization {
+        width: 100%;
+        height: 60%;
+    }
+    
+    .btn-registration {
+        width: 100px;
+        height: 24px;
+        font-size: 16px;
+    }
+    
+    .icons ion-icon {
+        font-size: 30px;
+        padding-top: 0px;
+    }
+    
+    .registration-input-fields {
+        font-size: 12px;
+    }
+    
+    .btn-form-registration {
+        width: 160px;
+        height: 24px;
+        margin-bottom: 10px;
+    }
+    
+    .icons a {
+        margin: 0 4px;
+    }
+    
+    .icons {
+        padding: 0px 0px;
+    }
+    
+    .registration-block {
+        padding-top: 0px;
+    }
+    
+    .form-registration-authorization {
+        width: 190px;
+    }
+    
+    .products {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 95%;
+         padding-right: 0px;
+    }
+
+    .product {
+        display: flex;
+        flex-direction: wrap;
+        width: 100%;
+        height: 30%;
+        margin-bottom: 10px;
+    }
+    
+    .description {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 50%;
+        padding-bottom: 2px;
+        padding-top: 2px;
+        order: 2;
+    }
+    
+    .basket-block {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 20%;
+        overflow: auto;
+    }
+    
+    .popup {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        width: 100%;
+        padding: 0px;
+        height: 60px;
+    }
+    
+    .input-filter {
+        width: 100px;
+        font-size: 18px;
+    }
+    
+    .txt {
+        padding-left: 0px;
+        margin-top: 0px;
+        padding-bottom: 0px;
+    }
+    
+    .btn-basket {
+        width: 80px;
+        height: 30px;
+        font-size: 10px;
+    }
+
+    .toggle-btn-card-1 {
+        width: 90px;
+        height: 25px;
+        font-size: 12px;
+    }
+    
+    .basket-item-block-btn {
+        height: 30px;
+        width: 70px;
+        font-size: 10px;
+    }
+
+    .cart-wrapper{
+        display: none;
+    }
+    
+    .component-basket {
+        font-size: 18px;
+    }
+    
+    .block-product {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: 30%;
+    }
+    
+    .home-block-of-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        height: 45%;
+        margin-right: 5px;
+        background: linear-gradient(to top, rgba(0,0,0,0.5)50%, rgba(0,0,0,0.5)50%);
+    }
+    
+    .m{
+        width: 45%;
+        height: 35%;
+    }
+    
+    .column {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+    
+    .name-product {
+        font-size: 16px;
+    }
 }

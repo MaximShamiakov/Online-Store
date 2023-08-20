@@ -13,22 +13,17 @@ export default function Contacts(props) {
         {title: "Skype", contacts: "MaxiMax"},
         {title: "График работы интерент-магазина", contacts: "ПН-Пт: 9:00 - 22:00, Сб-Вс: 10:00 - 20:00"},
     ]
-    
+
   return (
-    <div className={props.className}>
-        <div className="form">
-            
-            <form className="input-group">
-                <div className="block-img-info">
-                    <div className={props.classNameText}>
-                        {contacts.map((el)=>(<div><h1 className="text-big-header-information"><span>{el.title}</span> </h1><p className="par">
+        <div className={props.classNameProps}>
+            <div className="text-reg">
+            {contacts.map((el)=>(<div key={el.title}><h1 className="text-big-info"><span>{el.title}</span> </h1><div><p className="par">
                         {el.contacts}
-                        </p></div>
+                        </p></div></div>
                         ))}
-                    </div>
-                </div>
-            </form>
+            </div>
         </div>
-    </div>
   )
 }
+
+

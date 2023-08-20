@@ -11,6 +11,7 @@ import {
   Service,
   Contacts,
   Desing,
+  MyOrders,
 } from "./Components";
 
 import { Routes, Route } from "react-router-dom";
@@ -25,6 +26,7 @@ import {
   plusCartItem,
   minusCartItem,
 } from "./redux/actions/cart";
+import axios from "axios";
 
 function App() {
   const dispatch = useDispatch();
@@ -34,14 +36,24 @@ function App() {
   const onSelectCategory = React.useCallback((index) => {
     dispatch(setCategory(index));
   });
-
+  const cart = useSelector(({ cart }) => cart.items);
   React.useEffect(() => {
     dispatch(fetchModels(sortBy));
   }, []);
 
   const handeleAddModelsToCart = async (obj) => {
     dispatch(addModelsToCart(obj));
-    console.log(obj);
+    const product_id = obj.id;
+    const key = localStorage.getItem("key");
+    let quantity = 1;
+    if (cart[obj.id] && cart[obj.id].items.length > 0) {
+      quantity = cart[obj.id].items.length + 1;
+    }
+    axios.post("http://127.0.0.1:8000/basket/", {
+      product_id,
+      key,
+      quantity,
+    });
   };
 
   const onRemoveItem = (id) => {
@@ -57,14 +69,14 @@ function App() {
     console.log("- товара id-", id);
   };
 
-  const classNameDescription = "description";
-  const classNameText = "text-reg-header-information ";
   const name = localStorage.getItem("name");
   return (
     <div className="main">
       <div className="wrap">
         <Header />
-        <div>Привет {name}!</div>
+        <div className="par">
+          Добро пожаловать <span className="username">{name}!</span>
+        </div>
         <div className="products">
           <div className="cont product">
             <Product
@@ -73,43 +85,22 @@ function App() {
               categoryNumber={categoryNumber}
             />
           </div>
-
           <Routes>
             <Route
               path="delivery"
-              element={
-                <Delivery
-                  className={classNameDescription}
-                  classNameText={classNameText}
-                />
-              }
+              element={<Delivery classNameProps={"home-block-of-text"} />}
             />
             <Route
               path="service"
-              element={
-                <Service
-                  className={classNameDescription}
-                  classNameText={classNameText}
-                />
-              }
+              element={<Service classNameProps={"home-block-of-text"} />}
             />
             <Route
               path="contacts"
-              element={
-                <Contacts
-                  className={classNameDescription}
-                  classNameText={classNameText}
-                />
-              }
+              element={<Contacts classNameProps={"home-block-of-text"} />}
             />
             <Route
               path="desing"
-              element={
-                <Desing
-                  className={classNameDescription}
-                  classNameText={classNameText}
-                />
-              }
+              element={<Desing classNameProps={"home-block-of-text"} />}
             />
             <Route
               path="mainPage"
@@ -133,6 +124,7 @@ function App() {
               }
             />
             <Route path="orderForm" element={<OrderForm />} />
+            <Route path="myOrders" element={<MyOrders />} />
           </Routes>
           <Basket
             onRemove={onRemoveItem}

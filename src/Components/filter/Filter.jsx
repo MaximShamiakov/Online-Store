@@ -38,10 +38,10 @@ export default function Filter() {
 
 
   return (
-    <form className='popup' onSubmit={handleSubmit}>
-        <Input classInput={'input-filter'} placeholder={itemsFilterMinPrice} type={"text"} value={minPrice} onChange={handleMinPriceChange}/>
-        <Input classInput={'input-filter'} placeholder={itemsFilterMaxPrice} type={"text"} value={maxPrice} onChange={handleMaxPriceChange}/>
-        <Button classBtn={'btn-filter'} onClick={handleSubmit} type={"submit"} propsText={"Фильтр"}/>
+    <form className='popup-filter' onSubmit={handleSubmit}>
+      <Input classInput={'input-filter'} placeholder={itemsFilterMinPrice} type={"text"} value={minPrice} onChange={handleMinPriceChange}/>
+      <Input classInput={'input-filter'} placeholder={itemsFilterMaxPrice} type={"text"} value={maxPrice} onChange={handleMaxPriceChange}/>
+      <Button classBtn={'btn-filter'} onClick={handleSubmit} type={"submit"} propsText={"Фильтр"}/>
     </form>
   )
 }

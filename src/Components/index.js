@@ -1,49 +1,22 @@
-import Header from "./Header/Header";
-import Product from "./Product/Product";
-import Model from "./Product/Model/Model";
-import Basket from "./Basket/Basket";
-import OrderForm from "./OrderForm/OrderForm";
-import ComponentsBasket from "./Basket/ComponentsBasket";
-import Button from "./Button/Button";
-import Input from "./Input/Input";
-import MenuHeader from "./Header/MenuHeader/MenuHeader";
-import Logo from "./Header/Logo/Logo";
-import VisiblePopup from "./Product/VisiblePopup/VisiblePopup";
-import StateProducts from "./State/StateProducts";
-import Registration from "./ Registration/ Registration";
-import AuthenticationForm from "./ Registration/AuthenticationForm";
-import RegistrationForm from "./ Registration/RegistrationForm";
-import RegBtnLearnMore from "./ Registration/RegBtnLearnMore";
-import StoreInformation from "./ Registration/StoreInformation";
-import Delivery from "./Header/Delivery";
-import Service from "./Header/Service";
-import Contacts from "./Header/Contacts";
-import Desing from "./Header/Desing";
-import Filter from "./filter/Filter";
-// import Login from "./Login";
-
-export {
-  Header,
-  Product,
-  Basket,
-  Button,
-  Input,
-  MenuHeader,
-  Logo,
-  VisiblePopup,
-  Model,
-  OrderForm,
-  StateProducts,
-  ComponentsBasket,
-  Registration,
-  AuthenticationForm,
-  RegistrationForm,
-  StoreInformation,
-  RegBtnLearnMore,
-  Delivery,
-  Service,
-  Contacts,
-  Desing,
-  Filter,
-  // Login,
-};
+export { default as Header } from "./Header/Header";
+export { default as Product } from "./Product/Product";
+export { default as Model } from "./Product/Model/Model";
+export { default as Basket } from "./Basket/Basket";
+export { default as OrderForm } from "./OrderForm/OrderForm";
+export { default as ComponentsBasket } from "./Basket/ComponentsBasket";
+export { default as Button } from "./Button/Button";
+export { default as Input } from "./Input/Input";
+export { default as MenuHeader } from "./Header/MenuHeader/MenuHeader";
+export { default as Logo } from "./Header/Logo/Logo";
+export { default as VisiblePopup } from "./Product/VisiblePopup/VisiblePopup";
+export { default as StateProducts } from "./State/StateProducts";
+export { default as Registration } from "./ Registration/ Registration";
+export { default as AuthenticationForm } from "./ Registration/AuthenticationForm";
+export { default as RegistrationForm } from "./ Registration/RegistrationForm";
+export { default as Delivery } from "./Header/Delivery";
+export { default as Service } from "./Header/Service";
+export { default as Contacts } from "./Header/Contacts";
+export { default as Desing } from "./Header/Desing";
+export { default as Filter } from "./filter/Filter";
+export { default as MyOrders } from "./MyOrders/MyOrders";
+export { default as MainInformation } from "./Header/MainInformation";
