@@ -1,27 +1,39 @@
-import React from 'react'
-import {Button, Input, MenuHeader, Logo} from '..'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react';
+import { Button, Input, MenuHeader, Logo } from '..';
+import { Link } from 'react-router-dom';
 
 
-const hello = ()=> {
-  alert ('hello Max')
-}
+const Header = (props) => {
+  const [searchTerm, setSearchTerm] = useState('');
 
-const Header =()=> {
+
+  const onSearch = ()=>{
+    const obj = {searchTerm}
+    props.onSearch(obj)
+    }
+
+
   return (
     <div className="header">
       <Link to={'/'}>
-            <Logo ShopMax = {'ShopMax'}/>
+        <Logo ShopMax={'ShopMax'} />
       </Link>
-        <MenuHeader onClickMenuHeader={(text) => {
-            console.log(text);
-          }} />
-        <form className="cont search" action="https://www.google.com/search?q=username" method="get">
-            <Input placeholder={'Введите текст поиска'} classInput={'srch'} type={'text'}/>
-            <Button propsText={'поиск'} classBtn={'btn'} onClick={hello}/>
-        </form>
+      <MenuHeader onClickMenuHeader={(text) => {
+        console.log(text);
+      }} />
+      <form className="cont search">
+        <Input
+          placeholder={'Введите текст поиска'}
+          classInput={'srch'}
+          type={'text'}
+          onChange={(event) => setSearchTerm(event.target.value)}
+        />
+        <Link to={'search'}>
+          <Button propsText={'поиск'} classBtn={'btn'} onClick={onSearch} />
+        </Link>
+      </form>
     </div>
   )
 }
 
-export default Header
+export default Header;

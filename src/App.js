@@ -12,6 +12,7 @@ import {
   Contacts,
   Desing,
   MyOrders,
+  Search,
 } from "./Components";
 
 import { Routes, Route } from "react-router-dom";
@@ -21,6 +22,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setCategory } from "./redux/actions/category";
 import { fetchModels } from "./redux/actions/models";
 import { addModelsToCart } from "./redux/actions/cart";
+import { search } from "./redux/actions/search";
 import {
   removeCartItem,
   plusCartItem,
@@ -56,6 +58,21 @@ function App() {
     });
   };
 
+  const searchReducers = useSelector(({ search }) => search.items);
+  console.log(searchReducers);
+  const handleSearch = (obj) => {
+    console.log(obj.searchTerm);
+    axios
+      .post("http://localhost:8000/search/", { name: obj.searchTerm })
+      .then((response) => {
+        console.log(response.data);
+        dispatch(search(response.data));
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   const onRemoveItem = (id) => {
     dispatch(removeCartItem(id));
     console.log("удаление товара id-", id);
@@ -73,7 +90,7 @@ function App() {
   return (
     <div className="main">
       <div className="wrap">
-        <Header />
+        <Header onSearch={handleSearch} />
         <div className="par">
           Добро пожаловать <span className="username">{name}!</span>
         </div>
@@ -109,6 +126,16 @@ function App() {
                   onClickAddModels={handeleAddModelsToCart}
                   stateTv={itemsModels}
                   categoryNumber={categoryNumber}
+                  sortBy={sortBy}
+                />
+              }
+            />
+            <Route
+              path="search"
+              element={
+                <Search
+                  onClickAddModels={handeleAddModelsToCart}
+                  stateTv={searchReducers}
                   sortBy={sortBy}
                 />
               }

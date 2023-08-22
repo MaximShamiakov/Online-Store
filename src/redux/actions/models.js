@@ -6,6 +6,7 @@ export const fetchModels = () => (dispatch) => {
   const key = localStorage.getItem("key");
   axios.post("http://127.0.0.1:8000/").then((data) => {
     dispatch(setModels(data.data));
+    console.log(data.data);
   });
   axios
     .post("http://127.0.0.1:8000/basket_add/", { key: key })
