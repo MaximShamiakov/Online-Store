@@ -6,6 +6,7 @@ import cart from "./cart";
 import filter from "./filter";
 import myOrders from "./myOrders";
 import search from "./search";
+import page from "./page";
 
 const rootReducer = combineReducers({
   sorts,
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   filter,
   myOrders,
   search,
+  page,
 });
 
 export default rootReducer;

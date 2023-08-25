@@ -1,10 +1,10 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Button, VisiblePopup, Filter} from '../..'
-import { useDispatch} from "react-redux";
+import {useSelector, useDispatch} from "react-redux";
 import { setSortBy } from '../../../redux/actions/sort';
-
-
-
+import axios from 'axios';
+import { setModels } from '../../../redux/actions/models';
+import { actionsPage } from '../../../redux/actions/page';
 
 
 export default function ModelTV(props) {
@@ -31,20 +31,36 @@ const onAddModels = (el)=>{
     brand: el.brand,
     price :el.price,
   }
-  props.onClickAddModels(obj)  
+  props.onClickAddModels(obj)
 }
-
+const pageRedux = useSelector(({ page }) => page.items);
+console.log(pageRedux)
+const [title, setTitle] = useState(null);
+const handleScroll = (event) => {
+  setTitle(props.stateProducts);
+  const target = event.target;
+  if (target.scrollHeight - target.scrollTop === target.clientHeight) {
+    axios.post("http://127.0.0.1:8000/", { title: title , page: pageRedux })
+      .then(response => {
+        dispatch(setModels(response.data));
+        dispatch(actionsPage(null));
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+};
   return (
     <div className="cont description">
-      <div className="form">    
+      <div className="form" onScroll={handleScroll}>
         <VisiblePopup activeSortText = {sortBy} onClickItem={onSelectSortType} />
         <Filter/>
         <form className="product-categories">
           <div className="block-img-info">
             {
-            props.stateTv.map((el)=>( el.title === categorys[props.categoryNumber] &&  <div key={el.idProduct + el} className="block-product">
+            props.stateTv.map((el)=>( el.title === categorys[props.categoryNumber] && <div key={el.idProduct + el} className="block-product">
             <img className="tv" src={el.img} alt=""/>
-            {/* { el.idProduct && <h2 className="txt">id-<span>{el.idProduct}</span></h2>} */}
+            { el.idProduct && <h2 className="txt">id-<span>{el.idProduct}</span></h2>}
             { el.name && <h2 className="txt"><span>{el.name}</span></h2>}
             { el.brand &&<h2 className="txt"> <span> Модель -{el.brand}</span></h2>}
             { el.screenSize && <h2 className="txt">Display - <span >{el.screenSize}</span></h2>}

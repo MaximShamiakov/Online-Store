@@ -19,7 +19,6 @@ const Header = (props) => {
         <Logo ShopMax={'ShopMax'} />
       </Link>
       <MenuHeader onClickMenuHeader={(text) => {
-        console.log(text);
       }} />
       <form className="cont search">
         <Input

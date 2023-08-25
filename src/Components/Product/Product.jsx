@@ -1,12 +1,25 @@
 import React, {useState} from 'react'
 import { Link} from 'react-router-dom';
+import axios from 'axios';
+import { useDispatch} from "react-redux";
+import { setModels } from '../../redux/actions/models';
 
 const Product = React.memo(
     function Product(props) {
-        const [count, setCount] = useState(null);
+        const dispatch = useDispatch();
+        const [count, setCount] = useState('');
         const onSelectItems = (index)=>{
+          const category = props.stateProducts[index].title
             setCount(index)
-            props.onClickItem(index) 
+            props.onClickItem(index)
+            axios.post("http://127.0.0.1:8000/", { title: category})
+      .then(response => {
+        console.log(response.data)
+        dispatch(setModels(response.data))
+      })
+      .catch(error => {
+        console.log(error);
+      });
           }
 
       return (

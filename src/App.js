@@ -23,6 +23,7 @@ import { setCategory } from "./redux/actions/category";
 import { fetchModels } from "./redux/actions/models";
 import { addModelsToCart } from "./redux/actions/cart";
 import { search } from "./redux/actions/search";
+import { actionsPage } from "./redux/actions/page";
 import {
   removeCartItem,
   plusCartItem,
@@ -34,9 +35,11 @@ function App() {
   const dispatch = useDispatch();
   const itemsModels = useSelector(({ models }) => models.items);
   const categoryNumber = useSelector(({ category }) => category.number);
+  const stateProducts = StateProducts[categoryNumber].title;
   const { sortBy } = useSelector(({ sorts }) => sorts);
   const onSelectCategory = React.useCallback((index) => {
     dispatch(setCategory(index));
+    dispatch(actionsPage(1));
   });
   const cart = useSelector(({ cart }) => cart.items);
   React.useEffect(() => {
@@ -59,9 +62,7 @@ function App() {
   };
 
   const searchReducers = useSelector(({ search }) => search.items);
-  console.log(searchReducers);
   const handleSearch = (obj) => {
-    console.log(obj.searchTerm);
     axios
       .post("http://localhost:8000/search/", { name: obj.searchTerm })
       .then((response) => {
@@ -75,17 +76,13 @@ function App() {
 
   const onRemoveItem = (id) => {
     dispatch(removeCartItem(id));
-    console.log("удаление товара id-", id);
   };
   const onPlusItem = (id) => {
     dispatch(plusCartItem(id));
-    console.log("+ товара id-", id);
   };
   const onMinusItem = (id) => {
     dispatch(minusCartItem(id));
-    console.log("- товара id-", id);
   };
-
   const name = localStorage.getItem("name");
   return (
     <div className="main">
@@ -127,6 +124,7 @@ function App() {
                   stateTv={itemsModels}
                   categoryNumber={categoryNumber}
                   sortBy={sortBy}
+                  stateProducts={stateProducts}
                 />
               }
             />

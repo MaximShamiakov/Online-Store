@@ -6,9 +6,12 @@ const initialState = {
 const models = (state = initialState, action) => {
   switch (action.type) {
     case "SET_MODELS":
+      const newItems = action.payload.filter(
+        (item) => !state.items.some((i) => i.idProduct === item.idProduct)
+      );
       return {
         ...state,
-        items: action.payload,
+        items: [...state.items, ...newItems],
         isLoaded: true,
       };
 

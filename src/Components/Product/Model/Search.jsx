@@ -1,14 +1,9 @@
 import React from 'react'
-import {Button, VisiblePopup, Filter} from '../..'
-import { useDispatch} from "react-redux";
-import { setSortBy } from '../../../redux/actions/sort';
+import {Button} from '../..'
+
 
 export default function Search(props) {
-      const sortBy = props.sortBy
-      const dispatch = useDispatch();
-      const onSelectSortType = React.useCallback((type) => {
-          dispatch(setSortBy(type));
-      });
+
     const onAddModels = (el)=>{
       const obj = {
         id: el.idProduct, 
@@ -23,8 +18,6 @@ export default function Search(props) {
       return (
         <div className="cont description">
           <div className="form">    
-            <VisiblePopup activeSortText = {sortBy} onClickItem={onSelectSortType} />
-            <Filter/>
             <form className="product-categories">
               <div className="block-img-info">
                 {
