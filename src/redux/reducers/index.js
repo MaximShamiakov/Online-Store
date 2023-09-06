@@ -7,6 +7,12 @@ import filter from "./filter";
 import myOrders from "./myOrders";
 import search from "./search";
 import page from "./page";
+import contactsReducer from "./сontacts";
+import deliveryReducer from "./delivery";
+import designReducer from "./design";
+import serviceReducer from "./service";
+import descriptionReducer from "./regDescription";
+import productNameReducer from "./productName";
 
 const rootReducer = combineReducers({
   sorts,
@@ -17,6 +23,12 @@ const rootReducer = combineReducers({
   myOrders,
   search,
   page,
+  contactsReducer,
+  deliveryReducer,
+  designReducer,
+  serviceReducer,
+  descriptionReducer,
+  productNameReducer,
 });
 
 export default rootReducer;

@@ -4,17 +4,15 @@ import {
   Product,
   Basket,
   Model,
-  StateProducts,
   ComponentsBasket,
   OrderForm,
   Delivery,
   Service,
   Contacts,
-  Desing,
+  Design,
   MyOrders,
   Search,
 } from "./Components";
-
 import { Routes, Route } from "react-router-dom";
 import "./style/app.css";
 import "./style/styles_shopMax.css";
@@ -34,17 +32,26 @@ import axios from "axios";
 function App() {
   const dispatch = useDispatch();
   const itemsModels = useSelector(({ models }) => models.items);
+  console.log(itemsModels);
   const categoryNumber = useSelector(({ category }) => category.number);
-  const stateProducts = StateProducts[categoryNumber].title;
+  const productNameList = useSelector(
+    ({ productNameReducer }) => productNameReducer.items
+  );
+  const stateProducts = productNameList[categoryNumber]?.title;
+  console.log(stateProducts);
   const { sortBy } = useSelector(({ sorts }) => sorts);
-  const onSelectCategory = React.useCallback((index) => {
-    dispatch(setCategory(index));
-    dispatch(actionsPage(1));
-  });
+  const onSelectCategory = React.useCallback(
+    (index) => {
+      dispatch(setCategory(index));
+      dispatch(actionsPage(1));
+    },
+    [dispatch]
+  );
   const cart = useSelector(({ cart }) => cart.items);
   React.useEffect(() => {
     dispatch(fetchModels(sortBy));
-  }, []);
+    console.log(sortBy);
+  }, [dispatch, sortBy]);
 
   const handeleAddModelsToCart = async (obj) => {
     dispatch(addModelsToCart(obj));
@@ -84,6 +91,7 @@ function App() {
     dispatch(minusCartItem(id));
   };
   const name = localStorage.getItem("name");
+
   return (
     <div className="main">
       <div className="wrap">
@@ -94,7 +102,7 @@ function App() {
         <div className="products">
           <div className="cont product">
             <Product
-              stateProducts={StateProducts}
+              stateProducts={stateProducts}
               onClickItem={onSelectCategory}
               categoryNumber={categoryNumber}
             />
@@ -113,8 +121,8 @@ function App() {
               element={<Contacts classNameProps={"home-block-of-text"} />}
             />
             <Route
-              path="desing"
-              element={<Desing classNameProps={"home-block-of-text"} />}
+              path="design"
+              element={<Design classNameProps={"home-block-of-text"} />}
             />
             <Route
               path="mainPage"

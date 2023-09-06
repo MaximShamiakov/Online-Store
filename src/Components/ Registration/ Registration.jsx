@@ -1,11 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Header from '../Header/Header'
-import {Delivery, Service, Contacts, Desing, MainInformation, RegistrationForm, AuthenticationForm} from "../index"
+import {Delivery, Service, Contacts, Design, MainInformation, RegistrationForm, AuthenticationForm} from "../index"
 import { Route, Routes } from "react-router-dom";
 import { useState } from 'react';
+import axios from 'axios';
+import { useDispatch} from 'react-redux';
+import { regDescription } from '../../redux/actions/regDescription';
+import { contacts } from '../../redux/actions/сontacts'; 
+import { delivery } from '../../redux/actions/delivery'; 
+import { service } from '../../redux/actions/service'; 
+import { design } from '../../redux/actions/design'; 
 
 
 export default function Registration() {
+
+  const dispatch = useDispatch()
   const icons = [
     "logo-facebook",
     "logo-instagram",
@@ -13,8 +22,30 @@ export default function Registration() {
     "logo-google",
     "logo-skype"
   ]
-
   const [activeForm, setActiveForm] = useState('registration');
+  const actions = {
+    regDescription,
+    delivery,
+    service,
+    design,
+    contacts,
+  }
+  const information = [
+    {name:"regDescription"},
+    {name:"delivery"},
+    {name:"service"},
+    {name:"design"},
+    {name:"contacts"},
+  ]
+
+  useEffect(() => {
+    information.forEach(item => {
+      axios.post(`http://127.0.0.1:8000/${item.name}/`).then((response) => {
+        console.log(response.data)
+        dispatch(actions[item.name](response.data))
+      })
+    })
+  }, [])
 
   return (
     <div className="main">
@@ -26,7 +57,7 @@ export default function Registration() {
                   <Route path="delivery/*" element={<Delivery classNameProps={'block-of-text'}/>} />
                   <Route path="service/*" element={<Service classNameProps={'block-of-text'}/> } />
                   <Route path="contacts/*" element={<Contacts classNameProps={'block-of-text'}/>} />
-                  <Route path="desing/*" element={<Desing classNameProps={'block-of-text'}/>}/>
+                  <Route path="design/*" element={<Design classNameProps={'block-of-text'}/>}/>
               </Routes>
               <div className="block-form-registration-authorization">
                 <div className="form-registration-authorization">

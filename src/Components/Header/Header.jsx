@@ -4,22 +4,19 @@ import { Link } from 'react-router-dom';
 
 
 const Header = (props) => {
+
   const [searchTerm, setSearchTerm] = useState('');
-
-
   const onSearch = ()=>{
     const obj = {searchTerm}
     props.onSearch(obj)
     }
-
 
   return (
     <div className="header">
       <Link to={'/'}>
         <Logo ShopMax={'ShopMax'} />
       </Link>
-      <MenuHeader onClickMenuHeader={(text) => {
-      }} />
+      <MenuHeader/>
       <form className="cont search">
         <Input
           placeholder={'Введите текст поиска'}

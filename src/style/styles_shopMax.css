@@ -914,7 +914,7 @@ a {
     }
 
     .text-reg .text-big {
-        height: 40%;
+        height: 35%;
     }
 
     .icons ion-icon {
@@ -966,7 +966,7 @@ a {
     }
     
     .text-reg {
-        margin: 50px 0px 50px 50px;
+        margin: 50px 10px 50px 10px;
     }
     
     .products {
