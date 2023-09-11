@@ -7,6 +7,7 @@ import { delivery } from "../../redux/actions/delivery";
 import { service } from "../../redux/actions/service";
 import { design } from "../../redux/actions/design";
 import { productName } from "./productName";
+import { startLoading, stopLoading } from "../../Components/isLoadingThunks";
 
 export const fetchModels = () => (dispatch) => {
   const actions = {
@@ -24,22 +25,36 @@ export const fetchModels = () => (dispatch) => {
     { name: "contacts" },
   ];
   const key = localStorage.getItem("key");
+  dispatch(startLoading());
   axios.post("http://127.0.0.1:8000/", { title: "tv" }).then((data) => {
     dispatch(setModels(data.data));
+    console.log(data.data);
+    dispatch(stopLoading());
+    if (data.status === 200) {
+      dispatch(stopLoading());
+    }
   });
   axios
     .post("http://127.0.0.1:8000/basket_add/", { key: key })
     .then((response) => {
+      dispatch(startLoading());
       response.data.forEach((item) => {
         dispatch(addModelsToCart(item));
       });
+      if (response.status === 200) {
+        dispatch(stopLoading());
+      }
     });
   axios
     .post("http://127.0.0.1:8000/addOrders/", { key: key })
     .then((response) => {
+      dispatch(startLoading());
       response.data.forEach((item) => {
         dispatch(myOrders(item));
       });
+      if (response.status === 200) {
+        dispatch(stopLoading());
+      }
     });
 
   information.forEach((item) => {
@@ -48,12 +63,14 @@ export const fetchModels = () => (dispatch) => {
     });
   });
   axios.post("http://127.0.0.1:8000/productName/").then((response) => {
+    dispatch(startLoading());
     const data = response.data.map((item) => ({
       products: item.products,
       icons: item.icons,
       title: item.title,
     }));
     dispatch(productName(data));
+    dispatch(stopLoading());
   });
 };
 

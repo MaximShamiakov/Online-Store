@@ -11,6 +11,11 @@ const filter = (state = initialState, action) => {
         minPrice: action.payload.minPrice,
         maxPrice: action.payload.maxPrice,
       };
+    case "CLEAR":
+      return {
+        minPrice: "Min- цена",
+        maxPrice: "Max- цена",
+      };
 
     default:
       return state;

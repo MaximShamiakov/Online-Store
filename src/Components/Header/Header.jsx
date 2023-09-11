@@ -25,7 +25,7 @@ const Header = (props) => {
           onChange={(event) => setSearchTerm(event.target.value)}
         />
         <Link to={'search'}>
-          <Button propsText={'поиск'} classBtn={'btn'} onClick={onSearch} />
+          <Button text={'поиск'} classBtn={'btn'} onClick={onSearch} />
         </Link>
       </form>
     </div>

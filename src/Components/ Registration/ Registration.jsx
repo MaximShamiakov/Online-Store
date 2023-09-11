@@ -9,7 +9,9 @@ import { regDescription } from '../../redux/actions/regDescription';
 import { contacts } from '../../redux/actions/сontacts'; 
 import { delivery } from '../../redux/actions/delivery'; 
 import { service } from '../../redux/actions/service'; 
-import { design } from '../../redux/actions/design'; 
+import { design } from '../../redux/actions/design';
+import { startLoading, stopLoading } from '../isLoadingThunks';
+import { useSelector } from 'react-redux';
 
 
 export default function Registration() {
@@ -23,30 +25,38 @@ export default function Registration() {
     "logo-skype"
   ]
   const [activeForm, setActiveForm] = useState('registration');
-  const actions = {
-    regDescription,
-    delivery,
-    service,
-    design,
-    contacts,
-  }
-  const information = [
-    {name:"regDescription"},
-    {name:"delivery"},
-    {name:"service"},
-    {name:"design"},
-    {name:"contacts"},
-  ]
-
   useEffect(() => {
+    const actions = {
+      regDescription,
+      delivery,
+      service,
+      design,
+      contacts,
+    }
+    const information = [
+      {name:"regDescription"},
+      {name:"delivery"},
+      {name:"service"},
+      {name:"design"},
+      {name:"contacts"},
+    ]
+  
     information.forEach(item => {
+      dispatch(startLoading())
       axios.post(`http://127.0.0.1:8000/${item.name}/`).then((response) => {
-        console.log(response.data)
         dispatch(actions[item.name](response.data))
+        dispatch(stopLoading())
       })
     })
-  }, [])
+  }, [dispatch])
 
+  const isLoading = useSelector(
+    ({ isLoadingReducer }) => isLoadingReducer.isLoading
+  );
+
+  if (isLoading) {
+    return <div className="loading-reg">Loading...</div>;
+  }
   return (
     <div className="main">
         <div className="wrap">

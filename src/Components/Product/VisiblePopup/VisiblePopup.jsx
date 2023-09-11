@@ -1,7 +1,11 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { setSortBy } from '../../../redux/actions/sort';
 
 const VisiblePopup = (props) => {
+  const dispatch = useDispatch()
   const sortItem = [
+    {name: '', type: null},
     { name: 'Популярности', type: 'popular' },
     { name: 'Цене', type: 'price' },
     { name: 'Алфавиту', type: 'brand' },
@@ -25,7 +29,8 @@ const VisiblePopup = (props) => {
   };
   const onSelectItem = (index) => {
     setVisiblePopup(false);
-    props.onClickItem(sortItem[index].type);
+    dispatch(setSortBy(sortItem[index].type))
+    console.log(sortItem[index].type)
     
   };
   const activeSortType = sortItem.find((obj)=>obj.type === props.activeSortText).name

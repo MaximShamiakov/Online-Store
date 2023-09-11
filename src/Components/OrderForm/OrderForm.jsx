@@ -77,7 +77,7 @@ export default function OrderForm(props) {
       <div className="form">
         <div className="btn-back">
           <Link to={'/userPage/componentsBasket'}>
-            <Button classBtn={"toggle-btn-card-1"} propsText={"Назад"} />
+            <Button classBtn={"toggle-btn-card-1"} text={"Назад"} />
           </Link>
         </div>
         <form className="input-group-card" onSubmit={handleSubmit}>

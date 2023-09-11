@@ -13,6 +13,8 @@ import designReducer from "./design";
 import serviceReducer from "./service";
 import descriptionReducer from "./regDescription";
 import productNameReducer from "./productName";
+import isLoadingReducer from "./isLoading";
+import modelsFilterReducer from "./modelsFilter";
 
 const rootReducer = combineReducers({
   sorts,
@@ -29,6 +31,8 @@ const rootReducer = combineReducers({
   serviceReducer,
   descriptionReducer,
   productNameReducer,
+  isLoadingReducer,
+  modelsFilterReducer,
 });
 
 export default rootReducer;

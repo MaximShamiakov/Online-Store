@@ -43,16 +43,16 @@ export default function ComponentsBasket(props) {
                       <h2 className="txt">Цена - <span>{obj.price}</span></h2>
                       <h2 className='txt'>Итог-{items[obj.id].totalPrice}$</h2>
                       <div className='plus-minus'>
-                        <Button onClick={()=>handelePlusItem(obj.id)} classBtn={'plus-minus-btn'} propsText={'+'}/>
+                        <Button onClick={()=>handelePlusItem(obj.id)} classBtn={'plus-minus-btn'} text={'+'}/>
                         <h2 className='quantity-of-goods'>{items[obj.id].items.length} шт</h2>
-                        <Button onClick={()=>handeleMinusItem(obj.id)} classBtn={'plus-minus-btn'} propsText={'-'}/>
+                        <Button onClick={()=>handeleMinusItem(obj.id)} classBtn={'plus-minus-btn'} text={'-'}/>
                       </div>
                     </div>  
                     <div className='basket-item-block'>
                       <Link to={"/userPage/orderForm"}>
-                        <Button onClick={()=>idObjCartOrder(obj.id)} classBtn={'basket-item-block-btn'} propsText={'Заказать'}/>
+                        <Button onClick={()=>idObjCartOrder(obj.id)} classBtn={'basket-item-block-btn'} text={'Заказать'}/>
                       </Link>
-                      <Button onClick={()=>handeleRemoveClick(obj.id)} classBtn={'basket-item-block-btn'} propsText={'Удалить'}/>
+                      <Button onClick={()=>handeleRemoveClick(obj.id)} classBtn={'basket-item-block-btn'} text={'Удалить'}/>
                     </div>
                   </div>
                     )) : <h1 className="cont component-basket"> Корзина пуста</h1>

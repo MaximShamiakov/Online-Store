@@ -22,14 +22,14 @@ export default function MyOrders(props) {
               <div className='shopping-cart'>
                 {
                 addedOrder.map((obj)=>(
-                  <div key={obj + obj.idProduct} className="block-product-basket">
+                  <div key={obj + obj.id} className="block-product-basket">
                     <img className="img-basket" src={obj.img} alt=""/>                
                     <div className='info-product-basket'>
                       <h2 className="txt"><span>{obj.name}</span></h2>
                       <h2 className="txt">Модель - <span> {obj.brand}</span></h2>
                       <h2 className="txt">Цена - <span>{obj.price}</span></h2>
-                      <h2 className='txt'>{items[obj.idProduct].items.length} шт </h2>
-                      <h2 className='txt'>Итог-{items[obj.idProduct].totalPrice}$</h2>                        
+                      <h2 className='txt'>{items[obj.id].items.length} шт </h2>
+                      <h2 className='txt'>Итог-{items[obj.id].totalPrice}$</h2>                        
                     </div>
                     <div className='basket-item-block'>
                       <h2 className="txt">email <span>{obj.email}</span></h2>

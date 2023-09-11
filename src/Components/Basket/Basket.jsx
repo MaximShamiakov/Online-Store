@@ -28,14 +28,14 @@ export default function Basket(props) {
           <div className='header-basket'>
             <Link className='cont name-product' to={"componentsBasket"}>
               <Button
-              propsText={"Корзина"}  classBtn={"toggle-btn-card-1"}/>
+              text={"Корзина"} classBtn={"toggle-btn-card-1"}/>
             </Link>
             <Link className='cont name-product' to={"MyOrders"}>
               <Button
-              propsText={"Мои заказы"}  classBtn={"toggle-btn-card-1"}/>
+              text={"Мои заказы"} classBtn={"toggle-btn-card-1"}/>
             </Link>
           </div>
-          <div className='header-basket'>                 
+          <div className='header-basket'>
             <span className="cont component-basket2">Количество-{totalCount}</span>
             <span className="cont component-basket2">Сумма-{totalPrice}$</span> 
           </div>
@@ -50,14 +50,14 @@ export default function Basket(props) {
                 <h2 className="txt"> <span> {obj.brand}</span></h2>
                 <h2 className="txt">Цена - <span>{obj.price}$</span></h2>
                 <div className='plus-minus'>
-                  <Button onClick={()=>handelePlusItem(obj.id)}  classBtn={'plus-minus-btn'} propsText={'+'}/>
+                  <Button onClick={()=>handelePlusItem(obj.id)} classBtn={'plus-minus-btn'} text={'+'}/>
                   <h2 className='quantity-of-goods'>{items[obj.id].items.length} шт</h2>
-                  <Button onClick={()=>handeleMinusItem(obj.id)}  classBtn={'plus-minus-btn'} propsText={'-'}/>
+                  <Button onClick={()=>handeleMinusItem(obj.id)} classBtn={'plus-minus-btn'} text={'-'}/>
                 </div>
                   <h2 className='txt'>{items[obj.id].totalPrice}$</h2>
               </div>
                 <div className='basket-item-block'>
-                  <Button onClick={()=>handeleRemoveClick(obj.id)}  classBtn={'basket-item-block-btn3'} propsText={'❌'}/>
+                  <Button onClick={()=>handeleRemoveClick(obj.id)} classBtn={'basket-item-block-btn3'} text={'❌'}/>
                 </div>
               </div>
           </div>

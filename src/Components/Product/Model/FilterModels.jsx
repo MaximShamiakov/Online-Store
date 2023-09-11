@@ -1,27 +1,18 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {Button, VisiblePopup, Filter} from '../..'
 import {useSelector, useDispatch} from "react-redux";
-import axios from 'axios';
-import { setModels } from '../../../redux/actions/models';
-import { actionsPage } from '../../../redux/actions/page';
 import { setSortBy } from '../../../redux/actions/sort';
 
 
+
 export default function FilterModels(props) {
-  const categorys = [
-    "tv",
-    "telephone",
-    "computers",
-    "kitchen",
-    "audio",
-    "game",
-    "sport",
-    "photoVideo"
-  ]
+
   const sortBy = props.sortBy
-  console.log(sortBy)
   const dispatch = useDispatch();
-  const onAddModels = (el)=>{
+  const onSelectSortType = React.useCallback((type) => {
+    dispatch(setSortBy(type));
+  }, [dispatch]);
+const onAddModels = (el)=>{
   const obj = {
     id: el.id, 
     img: el.img,
@@ -31,27 +22,8 @@ export default function FilterModels(props) {
   }
   props.onClickAddModels(obj)
 }
-const pageRedux = useSelector(({ page }) => page.items);
-const [title, setTitle] = useState(null);
-// const sortName = useSelector(({sorts})=> sorts.sortBy)
-// console.log(sortName)
-const handleScroll = (event) => {
-  setTitle(props.stateProducts);
-  const target = event.target;
-  if (target.scrollHeight - target.scrollTop === target.clientHeight) {
-    axios.post("http://127.0.0.1:8000/", { title: title , page: pageRedux})
-      .then(response => {
-        dispatch(setModels(response.data));
-        dispatch(actionsPage(null));
-        if (sortBy) {
-          dispatch(setSortBy(sortBy))
-        }
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }
-};
+
+
   const isLoading = useSelector(
     ({ isLoadingReducer }) => isLoadingReducer.isLoading
   );
@@ -62,13 +34,13 @@ const handleScroll = (event) => {
 
   return (
     <div className="cont description">
-      <div className="form" onScroll={handleScroll} >
-        <VisiblePopup activeSortText = {sortBy}/>
+      <div className="form">
+        <VisiblePopup activeSortText = {sortBy} onClickItem={onSelectSortType} />
         <Filter/>
         <form className="product-categories">
           <div className="block-img-info">
-            {
-            props.itemsModels.map((el)=>( el.title === categorys[props.categoryNumber] && <div key={el.id + el} className="block-product">
+           {props.modelsFilter.length > 0 ?props.modelsFilter.map((el)=>(
+            <div key={el.id + el} className="block-product">
             <img className="tv" src={el.img} alt=""/>
             { el.id && <h2 className="txt">id-<span>{el.id}</span></h2>}
             { el.name && <h2 className="txt"><span>{el.name}</span></h2>}
@@ -82,10 +54,11 @@ const handleScroll = (event) => {
             <div>
               <Button onClick={()=>onAddModels(el)} classBtn={'btn-basket'} text={'добавить в корзину'}/>
             </div>
-            </div>))
-                }
             </div>
-          </form>
+           )) : <h1 className="cont component-basket">Товар не найден</h1>
+           }
+          </div>
+        </form>
         </div>
       </div>
   )

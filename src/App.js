@@ -12,6 +12,7 @@ import {
   Design,
   MyOrders,
   Search,
+  FilterModels,
 } from "./Components";
 import { Routes, Route } from "react-router-dom";
 import "./style/app.css";
@@ -28,17 +29,23 @@ import {
   minusCartItem,
 } from "./redux/actions/cart";
 import axios from "axios";
+import { startLoading, stopLoading } from "./Components/isLoadingThunks";
 
 function App() {
   const dispatch = useDispatch();
   const itemsModels = useSelector(({ models }) => models.items);
-  console.log(itemsModels);
+  const modelsFilter = useSelector(
+    ({ modelsFilterReducer }) => modelsFilterReducer.items
+  );
+
   const categoryNumber = useSelector(({ category }) => category.number);
+  // console.log(categoryNumber);
   const productNameList = useSelector(
     ({ productNameReducer }) => productNameReducer.items
   );
+  // console.log(productNameList);
   const stateProducts = productNameList[categoryNumber]?.title;
-  console.log(stateProducts);
+  // console.log(stateProducts);
   const { sortBy } = useSelector(({ sorts }) => sorts);
   const onSelectCategory = React.useCallback(
     (index) => {
@@ -48,11 +55,13 @@ function App() {
     [dispatch]
   );
   const cart = useSelector(({ cart }) => cart.items);
-  React.useEffect(() => {
-    dispatch(fetchModels(sortBy));
-    console.log(sortBy);
-  }, [dispatch, sortBy]);
 
+  //useEffect - позволяет выполнять определенные действия, когда происходят изменения,
+  //обновление компонента или изменение значений. похож на методы жизненного цикла
+  React.useEffect(() => {
+    //fetchModels - эосуществляет обращение к серверу,
+    dispatch(fetchModels());
+  }, [dispatch]);
   const handeleAddModelsToCart = async (obj) => {
     dispatch(addModelsToCart(obj));
     const product_id = obj.id;
@@ -67,20 +76,25 @@ function App() {
       quantity,
     });
   };
-
   const searchReducers = useSelector(({ search }) => search.items);
   const handleSearch = (obj) => {
+    if (obj.searchTerm.trim() === "") {
+      dispatch(search([]));
+    }
+    dispatch(startLoading());
     axios
       .post("http://localhost:8000/search/", { name: obj.searchTerm })
       .then((response) => {
-        console.log(response.data);
         dispatch(search(response.data));
+        if (response.status === 200) {
+          dispatch(stopLoading());
+        }
       })
       .catch((error) => {
         console.log(error);
+        dispatch(stopLoading());
       });
   };
-
   const onRemoveItem = (id) => {
     dispatch(removeCartItem(id));
   };
@@ -129,7 +143,19 @@ function App() {
               element={
                 <Model
                   onClickAddModels={handeleAddModelsToCart}
-                  stateTv={itemsModels}
+                  itemsModels={itemsModels}
+                  categoryNumber={categoryNumber}
+                  sortBy={sortBy}
+                  stateProducts={stateProducts}
+                />
+              }
+            />
+            <Route
+              path="mainPage/filter"
+              element={
+                <FilterModels
+                  onClickAddModels={handeleAddModelsToCart}
+                  modelsFilter={modelsFilter}
                   categoryNumber={categoryNumber}
                   sortBy={sortBy}
                   stateProducts={stateProducts}
@@ -141,7 +167,7 @@ function App() {
               element={
                 <Search
                   onClickAddModels={handeleAddModelsToCart}
-                  stateTv={searchReducers}
+                  itemsModels={searchReducers}
                   sortBy={sortBy}
                 />
               }

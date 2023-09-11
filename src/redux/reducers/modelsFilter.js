@@ -1,25 +1,18 @@
 const initialState = {
   items: [],
-  isLoaded: false,
 };
 
-const models = (state = initialState, action) => {
+const modelsFilterReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "SET_MODELS":
-      const newItems = action.payload.filter(
-        (item) => !state.items.some((i) => i.id === item.id)
-      );
+    case "MODELS_FILTER":
       return {
         ...state,
-        items: [...state.items, ...newItems],
-        isLoaded: true,
+        items: action.payload,
       };
 
     case "SET_SORT_BY":
       return {
         ...state,
-        // 1. метод slice(), скопирует исходный массив
-        // 2. метод sort(),который принимает функцию сравнения двух элементов массива ( arrayElementsA и arrayElementsB)
         items: state.items.slice().sort((arrayA, arrayB) => {
           if (action.payload === "price") {
             return arrayA.price - arrayB.price;
@@ -36,4 +29,4 @@ const models = (state = initialState, action) => {
   }
 };
 
-export default models;
+export default modelsFilterReducer;

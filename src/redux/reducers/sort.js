@@ -1,5 +1,5 @@
 const initialState = {
-  sortBy: "popular",
+  sortBy: null,
 };
 
 const sorts = (state = initialState, action) => {

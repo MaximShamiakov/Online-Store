@@ -20,3 +20,4 @@ export { default as Filter } from "./filter/Filter";
 export { default as MyOrders } from "./MyOrders/MyOrders";
 export { default as MainInformation } from "./Header/MainInformation";
 export { default as Search } from "./Product/Model/Search";
+export { default as FilterModels } from "./Product/Model/FilterModels";
