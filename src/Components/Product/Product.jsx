@@ -28,7 +28,12 @@ const Product = React.memo(
               }
 
           const itemsProduct = useSelector(({productNameReducer})=> productNameReducer.items)
-          console.log(itemsProduct)        
+          console.log(itemsProduct)
+          
+          const handleClick = ()=>{
+            localStorage.removeItem('key');
+            localStorage.removeItem('name');
+          }
           
       return (
             <div id="back" className="column">
@@ -41,7 +46,7 @@ const Product = React.memo(
               </div>))
               }
             <Link className='cont name-product' to={"/"}>
-                <div className="exit">выйти</div>
+                <div onClick={handleClick} className="exit">выйти</div>
             </Link>
             </div>
       )

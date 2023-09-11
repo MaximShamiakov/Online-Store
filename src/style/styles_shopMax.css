@@ -213,6 +213,21 @@ body{
     height: 90%;
 }
 
+.link-filter{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 30px;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 5px;
+    background: linear-gradient(to right, #ff105f, #ff7200);
+    cursor: pointer;
+}
+
 .form{
     width: 100%;
     height:100%;
@@ -877,7 +892,7 @@ a {
     outline:none;
 }
 
-.btn-filter {
+/* .btn-filter {
     display: flex;
     text-align: center;
     justify-content: center;
@@ -890,7 +905,7 @@ a {
     border-radius:5px;
     background: linear-gradient(to right, #ff105f, #ff7200);
     cursor: pointer;
-}
+} */
 
 .username{
     color: #ff7200;
@@ -913,6 +928,14 @@ a {
     background: linear-gradient(to top, rgba(0,0,0,0.5)50%, rgba(0,0,0,0.5)50%);
     margin-right: 4px;
     }
+
+.loading-home{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+}
 
 .loading-reg{
     display: flex;
@@ -1131,7 +1154,11 @@ a {
         width: 100%;
     }
     
-    .btn-filter {
+    /* .btn-filter {
+        width: 100px;
+    } */
+
+    .link-filter {
         width: 100px;
     }
     

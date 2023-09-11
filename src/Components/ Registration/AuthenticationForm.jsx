@@ -5,15 +5,15 @@ export default function AuthenticationForm(props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
-  useEffect(() => {
-    const key = localStorage.getItem('key');
-    if (key) {
-      setIsLoggedIn(true);
-    }
-    setIsLoading(false);
-  }, []);
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [isLoading, setIsLoading] = useState(true);
+  // useEffect(() => {
+  //   const key = localStorage.getItem('key');
+  //   if (key) {
+  //     setIsLoggedIn(true);
+  //   }
+  //   setIsLoading(false);
+  // }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -25,7 +25,7 @@ export default function AuthenticationForm(props) {
       else {
         localStorage.setItem('name', res.data.name)
         localStorage.setItem('key', res.data.key)
-        setIsLoggedIn(true);
+        // setIsLoggedIn(true);
         window.location.href = "/userPage/mainPage"
       }
     }catch (err) {

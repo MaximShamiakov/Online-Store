@@ -105,93 +105,99 @@ function App() {
     dispatch(minusCartItem(id));
   };
   const name = localStorage.getItem("name");
-
+  const loadingHome = useSelector(
+    ({ isLoadingReducer }) => isLoadingReducer.isLoadingHome
+  );
   return (
     <div className="main">
-      <div className="wrap">
-        <Header onSearch={handleSearch} />
-        <div className="par">
-          Добро пожаловать <span className="username">{name}!</span>
-        </div>
-        <div className="products">
-          <div className="cont product">
-            <Product
-              stateProducts={stateProducts}
-              onClickItem={onSelectCategory}
-              categoryNumber={categoryNumber}
+      {loadingHome !== true ? (
+        <div className="wrap">
+          <Header onSearch={handleSearch} />
+          <div className="par">
+            Добро пожаловать <span className="username">{name}!</span>
+          </div>
+          <div className="products">
+            <div className="cont product">
+              <Product
+                stateProducts={stateProducts}
+                onClickItem={onSelectCategory}
+                categoryNumber={categoryNumber}
+              />
+            </div>
+            <Routes>
+              <Route
+                path="delivery"
+                element={<Delivery classNameProps={"home-block-of-text"} />}
+              />
+              <Route
+                path="service"
+                element={<Service classNameProps={"home-block-of-text"} />}
+              />
+              <Route
+                path="contacts"
+                element={<Contacts classNameProps={"home-block-of-text"} />}
+              />
+              <Route
+                path="design"
+                element={<Design classNameProps={"home-block-of-text"} />}
+              />
+              <Route
+                path="mainPage"
+                element={
+                  <Model
+                    onClickAddModels={handeleAddModelsToCart}
+                    itemsModels={itemsModels}
+                    categoryNumber={categoryNumber}
+                    sortBy={sortBy}
+                    stateProducts={stateProducts}
+                  />
+                }
+              />
+              <Route
+                path="mainPage/filter"
+                element={
+                  <FilterModels
+                    onClickAddModels={handeleAddModelsToCart}
+                    modelsFilter={modelsFilter}
+                    categoryNumber={categoryNumber}
+                    sortBy={sortBy}
+                    stateProducts={stateProducts}
+                  />
+                }
+              />
+              <Route
+                path="search"
+                element={
+                  <Search
+                    onClickAddModels={handeleAddModelsToCart}
+                    itemsModels={searchReducers}
+                    sortBy={sortBy}
+                  />
+                }
+              />
+              <Route
+                path="componentsBasket"
+                element={
+                  <ComponentsBasket
+                    onRemove={onRemoveItem}
+                    onPlus={onPlusItem}
+                    onMinus={onMinusItem}
+                  />
+                }
+              />
+              <Route path="orderForm" element={<OrderForm />} />
+              <Route path="myOrders" element={<MyOrders />} />
+            </Routes>
+            <Basket
+              onRemove={onRemoveItem}
+              onPlus={onPlusItem}
+              onMinus={onMinusItem}
             />
           </div>
-          <Routes>
-            <Route
-              path="delivery"
-              element={<Delivery classNameProps={"home-block-of-text"} />}
-            />
-            <Route
-              path="service"
-              element={<Service classNameProps={"home-block-of-text"} />}
-            />
-            <Route
-              path="contacts"
-              element={<Contacts classNameProps={"home-block-of-text"} />}
-            />
-            <Route
-              path="design"
-              element={<Design classNameProps={"home-block-of-text"} />}
-            />
-            <Route
-              path="mainPage"
-              element={
-                <Model
-                  onClickAddModels={handeleAddModelsToCart}
-                  itemsModels={itemsModels}
-                  categoryNumber={categoryNumber}
-                  sortBy={sortBy}
-                  stateProducts={stateProducts}
-                />
-              }
-            />
-            <Route
-              path="mainPage/filter"
-              element={
-                <FilterModels
-                  onClickAddModels={handeleAddModelsToCart}
-                  modelsFilter={modelsFilter}
-                  categoryNumber={categoryNumber}
-                  sortBy={sortBy}
-                  stateProducts={stateProducts}
-                />
-              }
-            />
-            <Route
-              path="search"
-              element={
-                <Search
-                  onClickAddModels={handeleAddModelsToCart}
-                  itemsModels={searchReducers}
-                  sortBy={sortBy}
-                />
-              }
-            />
-            <Route
-              path="componentsBasket"
-              element={
-                <ComponentsBasket
-                  onRemove={onRemoveItem}
-                  onPlus={onPlusItem}
-                  onMinus={onMinusItem}
-                />
-              }
-            />
-            <Route path="orderForm" element={<OrderForm />} />
-            <Route path="myOrders" element={<MyOrders />} />
-          </Routes>
-          <Basket
-            onRemove={onRemoveItem}
-            onPlus={onPlusItem}
-            onMinus={onMinusItem}
-          />
         </div>
-      </div>
+      ) : (
+        <div className="loading-home">Loading...</div>
+      )}
     </div>
   );
 }

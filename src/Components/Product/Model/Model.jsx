@@ -33,8 +33,6 @@ export default function FilterModels(props) {
 }
 const pageRedux = useSelector(({ page }) => page.items);
 const [title, setTitle] = useState(null);
-// const sortName = useSelector(({sorts})=> sorts.sortBy)
-// console.log(sortName)
 const handleScroll = (event) => {
   setTitle(props.stateProducts);
   const target = event.target;
@@ -58,7 +56,6 @@ const handleScroll = (event) => {
   if (isLoading) {
     return <div className="loading">Loading...</div>;
   }
-
 
   return (
     <div className="cont description">

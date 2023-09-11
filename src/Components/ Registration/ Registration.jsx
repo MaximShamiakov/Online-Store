@@ -15,7 +15,6 @@ import { useSelector } from 'react-redux';
 
 
 export default function Registration() {
-
   const dispatch = useDispatch()
   const icons = [
     "logo-facebook",

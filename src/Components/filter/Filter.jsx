@@ -23,9 +23,9 @@ export default function Filter(props) {
   const handleMaxPriceChange = (event) => {
     setMaxPrice(event.target.value);
   };
-  const { minPrice: itemsFilterMinPrice, maxPrice: itemsFilterMaxPrice } =
-    useSelector(({ filter }) => filter);
-    console.log(minPrice, maxPrice)
+  // const { minPrice: itemsFilterMinPrice, maxPrice: itemsFilterMaxPrice } =
+  //   useSelector(({ filter }) => filter);
+  //   console.log(minPrice, maxPrice)
   const handleSubmit = (event) => {
     event.preventDefault();
     axios.get('http://localhost:8000/filtered', {
@@ -50,11 +50,11 @@ export default function Filter(props) {
       <div className='popup-filter' onSubmit={handleSubmit}>
         <Input classInput={'input-filter'} placeholder={"Min- цена"} type={"text"} value={minPrice} onChange={handleMinPriceChange}/>
         <Input classInput={'input-filter'} placeholder={"Max- цена"} type={"text"} value={maxPrice} onChange={handleMaxPriceChange}/>
-        <div onClick={handleSubmit} className='btn-filter' type={"submit"} text={"Фильтр"}>
+        <div onClick={handleSubmit} className='btn-filter' type={"submit"} >
           {location.pathname === '/userPage/mainPage/filter' ? (
-          <Link to={'/userPage/mainPage/filter'}>Фильтр</Link>
+          <Link className='link-filter' to={'/userPage/mainPage/filter'}>Фильтр</Link>
         ) : (
-          <Link to={'/userPage/mainPage/filter'}>Фильтр</Link>
+          <Link className='link-filter' to={'/userPage/mainPage/filter'}>Фильтр</Link>
         )}
         </div>
       </div>

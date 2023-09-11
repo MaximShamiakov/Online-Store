@@ -7,7 +7,12 @@ import { delivery } from "../../redux/actions/delivery";
 import { service } from "../../redux/actions/service";
 import { design } from "../../redux/actions/design";
 import { productName } from "./productName";
-import { startLoading, stopLoading } from "../../Components/isLoadingThunks";
+import {
+  startLoading,
+  stopLoading,
+  startLoadingHome,
+  stopLoadingHome,
+} from "../../Components/isLoadingThunks";
 
 export const fetchModels = () => (dispatch) => {
   const actions = {
@@ -25,6 +30,14 @@ export const fetchModels = () => (dispatch) => {
     { name: "contacts" },
   ];
   const key = localStorage.getItem("key");
+
+  if (
+    !localStorage.getItem("name") &&
+    !localStorage.getItem("key") &&
+    window.location.href === "http://localhost:3000/userPage/mainPage"
+  ) {
+    window.location.href = "/";
+  }
   dispatch(startLoading());
   axios.post("http://127.0.0.1:8000/", { title: "tv" }).then((data) => {
     dispatch(setModels(data.data));
@@ -71,6 +84,7 @@ export const fetchModels = () => (dispatch) => {
     }));
     dispatch(productName(data));
     dispatch(stopLoading());
+    dispatch(stopLoadingHome());
   });
 };
 
