@@ -18,11 +18,10 @@ export default function ComponentsBasket(props) {
   const handeleMinusItem = (id)=>{
       props.onMinus(id)
   }
-
   const idObjCartOrder = (id) =>{
     localStorage.setItem("id", id)
   }
-  
+
     return (
         <div className="cont description">
           <div className="form">

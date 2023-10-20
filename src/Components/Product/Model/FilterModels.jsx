@@ -22,15 +22,12 @@ const onAddModels = (el)=>{
   }
   props.onClickAddModels(obj)
 }
-
-
   const isLoading = useSelector(
     ({ isLoadingReducer }) => isLoadingReducer.isLoading
   );
   if (isLoading) {
     return <div className="loading">Loading...</div>;
   }
-
 
   return (
     <div className="cont description">

@@ -12,6 +12,7 @@ import { service } from '../../redux/actions/service';
 import { design } from '../../redux/actions/design';
 import { startLoading, stopLoading } from '../isLoadingThunks';
 import { useSelector } from 'react-redux';
+import { API_URL } from '../../config';
 
 
 export default function Registration() {
@@ -42,7 +43,7 @@ export default function Registration() {
   
     information.forEach(item => {
       dispatch(startLoading())
-      axios.post(`http://127.0.0.1:8000/${item.name}/`).then((response) => {
+      axios.post(`${API_URL}/${item.name}/`).then((response) => {
         dispatch(actions[item.name](response.data))
         dispatch(stopLoading())
       })
@@ -56,6 +57,7 @@ export default function Registration() {
   if (isLoading) {
     return <div className="loading-reg">Loading...</div>;
   }
+
   return (
     <div className="main">
         <div className="wrap">

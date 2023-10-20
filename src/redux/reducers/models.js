@@ -18,8 +18,6 @@ const models = (state = initialState, action) => {
     case "SET_SORT_BY":
       return {
         ...state,
-        // 1. метод slice(), скопирует исходный массив
-        // 2. метод sort(),который принимает функцию сравнения двух элементов массива ( arrayElementsA и arrayElementsB)
         items: state.items.slice().sort((arrayA, arrayB) => {
           if (action.payload === "price") {
             return arrayA.price - arrayB.price;

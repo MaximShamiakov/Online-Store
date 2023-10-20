@@ -1,9 +1,10 @@
 import React, {useState}from 'react'
-import {Button, Input} from '../index'
+import {Input} from '../index'
 import axios from 'axios';
 import { useDispatch, useSelector} from "react-redux";
 import { Link, useLocation } from 'react-router-dom';
 import { modelsFilter } from '../../redux/actions/modelsFilter';
+import { API_URL } from '../../config';
 
 
 export default function Filter(props) {
@@ -19,16 +20,12 @@ export default function Filter(props) {
     ({ productNameReducer }) => productNameReducer.items
   );
   const stateProducts = productNameList[categoryNumber]?.title;
-  console.log(stateProducts);
   const handleMaxPriceChange = (event) => {
     setMaxPrice(event.target.value);
   };
-  // const { minPrice: itemsFilterMinPrice, maxPrice: itemsFilterMaxPrice } =
-  //   useSelector(({ filter }) => filter);
-  //   console.log(minPrice, maxPrice)
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.get('http://localhost:8000/filtered', {
+    axios.get(`${API_URL}/filtered`, {
       params: {
         min_price: minPrice,
         max_price: maxPrice,
@@ -37,13 +34,11 @@ export default function Filter(props) {
     })
     .then((response) => {
       dispatch(modelsFilter(response.data.data));
-      console.log(response.data);
     })
     .catch(error => {
       console.log(error);
     });
   };
-
 
   return (
 

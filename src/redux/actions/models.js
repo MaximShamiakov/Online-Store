@@ -10,9 +10,9 @@ import { productName } from "./productName";
 import {
   startLoading,
   stopLoading,
-  startLoadingHome,
   stopLoadingHome,
 } from "../../Components/isLoadingThunks";
+import { API_URL } from "../../config";
 
 export const fetchModels = () => (dispatch) => {
   const actions = {
@@ -34,48 +34,43 @@ export const fetchModels = () => (dispatch) => {
   if (
     !localStorage.getItem("name") &&
     !localStorage.getItem("key") &&
-    window.location.href === "http://localhost:3000/userPage/mainPage"
+    window.location.href === "/userPage/mainPage"
   ) {
     window.location.href = "/";
   }
   dispatch(startLoading());
-  axios.post("http://127.0.0.1:8000/", { title: "tv" }).then((data) => {
+  axios.post(`${API_URL}/`, { title: "tv" }).then((data) => {
     dispatch(setModels(data.data));
-    console.log(data.data);
     dispatch(stopLoading());
     if (data.status === 200) {
       dispatch(stopLoading());
     }
   });
-  axios
-    .post("http://127.0.0.1:8000/basket_add/", { key: key })
-    .then((response) => {
-      dispatch(startLoading());
-      response.data.forEach((item) => {
-        dispatch(addModelsToCart(item));
-      });
-      if (response.status === 200) {
-        dispatch(stopLoading());
-      }
+  axios.post(`${API_URL}/basket_add/`, { key: key }).then((response) => {
+    dispatch(startLoading());
+    response.data.forEach((item) => {
+      dispatch(addModelsToCart(item));
     });
-  axios
-    .post("http://127.0.0.1:8000/addOrders/", { key: key })
-    .then((response) => {
-      dispatch(startLoading());
-      response.data.forEach((item) => {
-        dispatch(myOrders(item));
-      });
-      if (response.status === 200) {
-        dispatch(stopLoading());
-      }
+    if (response.status === 200) {
+      dispatch(stopLoading());
+    }
+  });
+  axios.post(`${API_URL}/addOrders/`, { key: key }).then((response) => {
+    dispatch(startLoading());
+    response.data.forEach((item) => {
+      dispatch(myOrders(item));
     });
+    if (response.status === 200) {
+      dispatch(stopLoading());
+    }
+  });
 
   information.forEach((item) => {
-    axios.post(`http://127.0.0.1:8000/${item.name}/`).then((response) => {
+    axios.post(`${API_URL}/${item.name}/`).then((response) => {
       dispatch(actions[item.name](response.data));
     });
   });
-  axios.post("http://127.0.0.1:8000/productName/").then((response) => {
+  axios.post(`${API_URL}/productName/`).then((response) => {
     dispatch(startLoading());
     const data = response.data.map((item) => ({
       products: item.products,

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from "axios";
+import { API_URL } from '../../config';
 
 
 export default function RegistrationForm(props) {
@@ -20,10 +21,9 @@ export default function RegistrationForm(props) {
       return;
     }
     try {
-      const res = await axios.post("http://127.0.0.1:8000/new_reg/", formData);
+      const res = await axios.post(`${API_URL}/new_reg/`, formData);
       localStorage.setItem('key', res.data.key)
       localStorage.setItem('name', res.data.name)
-      alert("Регистрация прошла успешна");
       window.location.href = '/userPage/mainPage';
     } catch (err) {
       console.log(err.response.data);

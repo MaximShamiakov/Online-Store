@@ -1,5 +1,6 @@
 import React, {useState} from "react"
 import axios from "axios";
+import { API_URL, APP_URL } from "../../config";
 
 export default function AuthenticationForm(props) {
   const [email, setEmail] = useState('');
@@ -7,20 +8,19 @@ export default function AuthenticationForm(props) {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const res = await axios.post("http://127.0.0.1:8000/new_login/", { email, password })
+      const res = await axios.post(`${API_URL}/new_login/`, { email, password })
       if (res.status !== 200){
         alert('не верный логин или пароль')
       }
       else {
         localStorage.setItem('name', res.data.name)
         localStorage.setItem('key', res.data.key)
-        window.location.href = "/userPage/mainPage"
+        window.location.href = `${APP_URL}/userPage/mainPage`
       }
     }catch (err) {
       console.log(err)
     }
   }
-
 
   return (
     <form onSubmit={handleSubmit} className="data-input">

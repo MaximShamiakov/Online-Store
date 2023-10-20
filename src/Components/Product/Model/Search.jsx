@@ -13,9 +13,7 @@ export default function Search(props) {
         price :el.price,
       }
       props.onClickAddModels(obj)  
-    }
-    console.log(props.itemsModels)
-    
+    }  
       return (
         <div className="cont description">
           <div className="form">    

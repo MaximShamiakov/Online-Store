@@ -4,8 +4,7 @@ import { useSelector } from 'react-redux'
 
 export default function MainInformation(props) {
   const description = useSelector(({ descriptionReducer }) => descriptionReducer.items);
-  console.log(description)
-
+  
   return (
         <div className={props.classNameProps}>
             <div className="text-reg">

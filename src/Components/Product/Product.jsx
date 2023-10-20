@@ -6,6 +6,7 @@ import { setModels } from '../../redux/actions/models';
 import { useSelector } from 'react-redux';
 import { setSortBy } from '../../redux/actions/sort';
 import { startLoading, stopLoading } from '../isLoadingThunks';
+import { API_URL } from '../../config';
 
 const Product = React.memo(
     function Product(props) {
@@ -15,9 +16,8 @@ const Product = React.memo(
           dispatch(startLoading())
           setCount(index)
           props.onClickItem(index)
-          axios.post("http://127.0.0.1:8000/", { title: title})
+          axios.post(`${API_URL}/`, { title: title})
           .then(response => {
-            console.log(response)
             dispatch(setModels(response.data))
             dispatch(setSortBy(null))
             dispatch(stopLoading())
@@ -26,15 +26,11 @@ const Product = React.memo(
             console.log(error);
           });
               }
-
-          const itemsProduct = useSelector(({productNameReducer})=> productNameReducer.items)
-          console.log(itemsProduct)
-          
+          const itemsProduct = useSelector(({productNameReducer})=> productNameReducer.items)          
           const handleClick = ()=>{
             localStorage.removeItem('key');
             localStorage.removeItem('name');
           }
-          
       return (
             <div id="back" className="column">
               {

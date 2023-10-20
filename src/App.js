@@ -30,6 +30,7 @@ import {
 } from "./redux/actions/cart";
 import axios from "axios";
 import { startLoading, stopLoading } from "./Components/isLoadingThunks";
+import { API_URL } from "./config";
 
 function App() {
   const dispatch = useDispatch();
@@ -39,13 +40,10 @@ function App() {
   );
 
   const categoryNumber = useSelector(({ category }) => category.number);
-  // console.log(categoryNumber);
   const productNameList = useSelector(
     ({ productNameReducer }) => productNameReducer.items
   );
-  // console.log(productNameList);
   const stateProducts = productNameList[categoryNumber]?.title;
-  // console.log(stateProducts);
   const { sortBy } = useSelector(({ sorts }) => sorts);
   const onSelectCategory = React.useCallback(
     (index) => {
@@ -56,10 +54,7 @@ function App() {
   );
   const cart = useSelector(({ cart }) => cart.items);
 
-  //useEffect - позволяет выполнять определенные действия, когда происходят изменения,
-  //обновление компонента или изменение значений. похож на методы жизненного цикла
   React.useEffect(() => {
-    //fetchModels - эосуществляет обращение к серверу,
     dispatch(fetchModels());
   }, [dispatch]);
   const handeleAddModelsToCart = async (obj) => {
@@ -70,7 +65,7 @@ function App() {
     if (cart[obj.id] && cart[obj.id].items.length > 0) {
       quantity = cart[obj.id].items.length + 1;
     }
-    axios.post("http://127.0.0.1:8000/basket/", {
+    axios.post(`${API_URL}/basket/`, {
       product_id,
       key,
       quantity,
@@ -83,7 +78,7 @@ function App() {
     }
     dispatch(startLoading());
     axios
-      .post("http://localhost:8000/search/", { name: obj.searchTerm })
+      .post(`${API_URL}/search/`, { name: obj.searchTerm })
       .then((response) => {
         dispatch(search(response.data));
         if (response.status === 200) {
@@ -91,7 +86,6 @@ function App() {
         }
       })
       .catch((error) => {
-        console.log(error);
         dispatch(stopLoading());
       });
   };

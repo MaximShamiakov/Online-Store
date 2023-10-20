@@ -1,4 +1,5 @@
 import axios from "axios";
+import { API_URL } from "../../config";
 
 const initialState = {
   items: {},
@@ -51,16 +52,14 @@ const cart = (state = initialState, action) => {
       const product_id = action.payload;
       const quantity = 0;
       axios
-        .post("http://127.0.0.1:8000/basket/", {
+        .post(`${API_URL}/basket/`, {
           product_id,
           key,
           quantity,
         })
         .then((res) => {
           if (res.status !== 200) {
-            alert("что-то пошло не так в cart и REMOVE_CART_ITEM не сработал");
-          } else {
-            alert("REMOVE_CART_ITEM сработал cart");
+            alert("что-то пошло не так");
           }
         })
         .catch((res) => {
@@ -93,7 +92,7 @@ const cart = (state = initialState, action) => {
       const quantity = newObjItems.length;
       const product_id = action.payload;
       axios
-        .post("http://127.0.0.1:8000/basket/", {
+        .post(`${API_URL}/basket/`, {
           key,
           product_id,
           quantity,
@@ -101,8 +100,6 @@ const cart = (state = initialState, action) => {
         .then((res) => {
           if (res.status !== 200) {
             alert("что-то пошло не так в cart и + не сработал");
-          } else {
-            alert("+ сработал cart");
           }
         })
         .catch((err) => {
@@ -136,7 +133,7 @@ const cart = (state = initialState, action) => {
       const quantity = newObjItems.length;
       const product_id = action.payload;
       axios
-        .post("http://127.0.0.1:8000/basket/", {
+        .post(`${API_URL}/basket/`, {
           key,
           quantity,
           product_id,
@@ -144,8 +141,6 @@ const cart = (state = initialState, action) => {
         .then((res) => {
           if (res.status !== 200) {
             alert("что-то пошло не так в cart и - не сработал");
-          } else {
-            alert("- сработал cart");
           }
         })
         .catch((err) => {

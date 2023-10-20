@@ -6,6 +6,7 @@ import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 import { myOrders } from '../../redux/actions/myOrders';
 import { removeCartItem } from '../../redux/actions/cart';
+import { API_URL } from '../../config';
 
 export default function OrderForm(props) {
 
@@ -27,15 +28,12 @@ export default function OrderForm(props) {
     quantity: quantity,
     key: localStorage.getItem('key')
   });
-
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     if (
-      //метод "trim()  удаления пробелов в начале и конце строки 
       formData.lastName.trim() === "" ||
       formData.firstName.trim() === "" ||
       formData.phone.trim() === "" ||
@@ -51,9 +49,8 @@ export default function OrderForm(props) {
     }
     dispatch(removeCartItem(idOrder));
     axios
-      .post("http://127.0.0.1:8000/orders/", formData)
+      .post(`${API_URL}/orders/`, formData)
       .then((response) => {
-        console.log(response.data);
         setFormData({
           lastName: "",
           firstName: "",

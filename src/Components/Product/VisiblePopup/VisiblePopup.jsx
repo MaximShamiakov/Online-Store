@@ -30,9 +30,7 @@ const VisiblePopup = (props) => {
   const onSelectItem = (index) => {
     setVisiblePopup(false);
     dispatch(setSortBy(sortItem[index].type))
-    console.log(sortItem[index].type)
-    
-  };
+    };
   const activeSortType = sortItem.find((obj)=>obj.type === props.activeSortText).name
 
   return (
@@ -42,8 +40,7 @@ const VisiblePopup = (props) => {
       </div>
       <span className="sortActiveName">{activeSortType}</span>
       {visiblePopup &&
-        sortItem.map((obj, index) => (
-          
+        sortItem.map((obj, index) => ( 
           <div onClick={() => onSelectItem(index)} className="sortСategories" key={obj.type}>
             {obj.name === activeSortType ? [] : obj.name}
           </div>

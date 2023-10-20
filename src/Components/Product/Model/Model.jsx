@@ -5,6 +5,7 @@ import axios from 'axios';
 import { setModels } from '../../../redux/actions/models';
 import { actionsPage } from '../../../redux/actions/page';
 import { setSortBy } from '../../../redux/actions/sort';
+import { API_URL } from '../../../config';
 
 
 export default function FilterModels(props) {
@@ -19,7 +20,6 @@ export default function FilterModels(props) {
     "photoVideo"
   ]
   const sortBy = props.sortBy
-  console.log(sortBy)
   const dispatch = useDispatch();
   const onAddModels = (el)=>{
   const obj = {
@@ -37,7 +37,7 @@ const handleScroll = (event) => {
   setTitle(props.stateProducts);
   const target = event.target;
   if (target.scrollHeight - target.scrollTop === target.clientHeight) {
-    axios.post("http://127.0.0.1:8000/", { title: title , page: pageRedux})
+    axios.post(`${API_URL}/`, { title: title , page: pageRedux})
       .then(response => {
         dispatch(setModels(response.data));
         dispatch(actionsPage(null));
