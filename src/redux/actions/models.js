@@ -10,9 +10,11 @@ import { productName } from "./productName";
 import {
   startLoading,
   stopLoading,
-  stopLoadingHome,
-} from "../../Components/isLoadingThunks";
+  startLoadingComponent,
+  stopLoadingComponent,
+} from "../../Components/UseIsLoading/isLoadingThunks";
 import { API_URL } from "../../config";
+import { setLogo } from "./logo";
 
 export const fetchModels = () => (dispatch) => {
   const actions = {
@@ -38,30 +40,32 @@ export const fetchModels = () => (dispatch) => {
   ) {
     window.location.href = "/";
   }
-  dispatch(startLoading());
   axios.post(`${API_URL}/`, { title: "tv" }).then((data) => {
+    dispatch(startLoadingComponent());
     dispatch(setModels(data.data));
-    dispatch(stopLoading());
+    dispatch(stopLoadingComponent());
     if (data.status === 200) {
-      dispatch(stopLoading());
+      dispatch(stopLoadingComponent());
     }
   });
   axios.post(`${API_URL}/basket_add/`, { key: key }).then((response) => {
-    dispatch(startLoading());
+    dispatch(startLoadingComponent());
     response.data.forEach((item) => {
       dispatch(addModelsToCart(item));
+      dispatch(stopLoadingComponent());
     });
     if (response.status === 200) {
-      dispatch(stopLoading());
+      dispatch(stopLoadingComponent());
     }
   });
   axios.post(`${API_URL}/addOrders/`, { key: key }).then((response) => {
-    dispatch(startLoading());
+    dispatch(startLoadingComponent());
     response.data.forEach((item) => {
       dispatch(myOrders(item));
+      dispatch(stopLoadingComponent());
     });
     if (response.status === 200) {
-      dispatch(stopLoading());
+      dispatch(stopLoadingComponent());
     }
   });
 
@@ -69,6 +73,13 @@ export const fetchModels = () => (dispatch) => {
     axios.post(`${API_URL}/${item.name}/`).then((response) => {
       dispatch(actions[item.name](response.data));
     });
+  });
+  axios.post(`${API_URL}/logo/`).then((response) => {
+    dispatch(startLoading());
+    const data = response.data;
+    dispatch(setLogo(data));
+    dispatch(stopLoading());
+    console.log(data);
   });
   axios.post(`${API_URL}/productName/`).then((response) => {
     dispatch(startLoading());
@@ -79,7 +90,6 @@ export const fetchModels = () => (dispatch) => {
     }));
     dispatch(productName(data));
     dispatch(stopLoading());
-    dispatch(stopLoadingHome());
   });
 };
 

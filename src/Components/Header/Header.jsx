@@ -14,7 +14,7 @@ const Header = (props) => {
   return (
     <div className="header">
       <Link to={'/'}>
-        <Logo ShopMax={'ShopMax'} />
+        <Logo/>
       </Link>
       <MenuHeader/>
       <form className="cont search">

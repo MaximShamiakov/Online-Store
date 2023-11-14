@@ -3,7 +3,7 @@ export const setLoading = (isLoading) => ({
   payload: isLoading,
 });
 
-export const setLoadingHome = (isLoading) => ({
-  type: "SET_LOADING_HOME",
+export const setLoadingComponent = (isLoading) => ({
+  type: "SET_LOADING_COMPONENT",
   payload: isLoading,
 });

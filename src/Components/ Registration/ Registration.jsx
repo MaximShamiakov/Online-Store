@@ -10,9 +10,9 @@ import { contacts } from '../../redux/actions/сontacts';
 import { delivery } from '../../redux/actions/delivery'; 
 import { service } from '../../redux/actions/service'; 
 import { design } from '../../redux/actions/design';
-import { startLoading, stopLoading } from '../isLoadingThunks';
-import { useSelector } from 'react-redux';
+import { startLoading, stopLoading } from '../UseIsLoading/isLoadingThunks';
 import { API_URL } from '../../config';
+import { useIsLoading } from '../UseIsLoading/useIsLoading';
 
 
 export default function Registration() {
@@ -50,16 +50,11 @@ export default function Registration() {
     })
   }, [dispatch])
 
-  const isLoading = useSelector(
-    ({ isLoadingReducer }) => isLoadingReducer.isLoading
-  );
-
-  if (isLoading) {
-    return <div className="loading-reg">Loading...</div>;
-  }
+  const isLoading = useIsLoading()
 
   return (
     <div className="main">
+      { isLoading !== true ?(
         <div className="wrap">
             <Header />
             <div className="registration-block">
@@ -88,7 +83,9 @@ export default function Registration() {
                 </div>
               </div>
             </div>
-        </div>
+        </div>) :
+        (<div className="loading">Loading...</div>)
+        }
     </div>
   )
 }

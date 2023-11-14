@@ -1,7 +1,8 @@
 import React from 'react'
 import {Button, VisiblePopup, Filter} from '../..'
-import {useSelector, useDispatch} from "react-redux";
+import {useDispatch} from "react-redux";
 import { setSortBy } from '../../../redux/actions/sort';
+import { useIsLoadingComponent } from '../../UseIsLoading/useIsLoading';
 
 
 
@@ -22,18 +23,14 @@ const onAddModels = (el)=>{
   }
   props.onClickAddModels(obj)
 }
-  const isLoading = useSelector(
-    ({ isLoadingReducer }) => isLoadingReducer.isLoading
-  );
-  if (isLoading) {
-    return <div className="loading">Loading...</div>;
-  }
+  const isLoading = useIsLoadingComponent()
 
   return (
     <div className="cont description">
       <div className="form">
         <VisiblePopup activeSortText = {sortBy} onClickItem={onSelectSortType} />
         <Filter/>
+        { isLoading !== true ? (
         <form className="product-categories">
           <div className="block-img-info">
            {props.modelsFilter.length > 0 ?props.modelsFilter.map((el)=>(
@@ -55,7 +52,8 @@ const onAddModels = (el)=>{
            )) : <h1 className="cont component-basket">Товар не найден</h1>
            }
           </div>
-        </form>
+        </form>) :
+        (<div className="loading">Loading...</div>)}
         </div>
       </div>
   )

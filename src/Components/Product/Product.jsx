@@ -5,7 +5,6 @@ import { useDispatch} from "react-redux";
 import { setModels } from '../../redux/actions/models';
 import { useSelector } from 'react-redux';
 import { setSortBy } from '../../redux/actions/sort';
-import { startLoading, stopLoading } from '../isLoadingThunks';
 import { API_URL } from '../../config';
 
 const Product = React.memo(
@@ -13,14 +12,12 @@ const Product = React.memo(
         const dispatch = useDispatch();
         const [count, setCount] = useState('');
         const onSelectItems = (index, title)=>{
-          dispatch(startLoading())
           setCount(index)
           props.onClickItem(index)
           axios.post(`${API_URL}/`, { title: title})
           .then(response => {
             dispatch(setModels(response.data))
             dispatch(setSortBy(null))
-            dispatch(stopLoading())
           })
           .catch(error => {
             console.log(error);

@@ -1,6 +1,6 @@
 const initialState = {
   isLoading: true,
-  isLoadingHome: true,
+  isLoadingComponent: true,
 };
 
 const isLoadingReducer = (state = initialState, action) => {
@@ -10,10 +10,10 @@ const isLoadingReducer = (state = initialState, action) => {
         ...state,
         isLoading: action.payload,
       };
-    case "SET_LOADING_HOME":
+    case "SET_LOADING_COMPONENT":
       return {
         ...state,
-        isLoadingHome: action.payload,
+        isLoadingComponent: action.payload,
       };
     default:
       return state;

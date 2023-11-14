@@ -5,6 +5,7 @@ import { useDispatch, useSelector} from "react-redux";
 import { Link, useLocation } from 'react-router-dom';
 import { modelsFilter } from '../../redux/actions/modelsFilter';
 import { API_URL } from '../../config';
+import { startLoadingComponent, stopLoadingComponent } from '../UseIsLoading/isLoadingThunks';
 
 
 export default function Filter(props) {
@@ -24,6 +25,7 @@ export default function Filter(props) {
     setMaxPrice(event.target.value);
   };
   const handleSubmit = (event) => {
+    dispatch(startLoadingComponent())
     event.preventDefault();
     axios.get(`${API_URL}/filtered`, {
       params: {
@@ -34,6 +36,7 @@ export default function Filter(props) {
     })
     .then((response) => {
       dispatch(modelsFilter(response.data.data));
+      dispatch(stopLoadingComponent())
     })
     .catch(error => {
       console.log(error);
@@ -41,7 +44,6 @@ export default function Filter(props) {
   };
 
   return (
-
       <div className='popup-filter' onSubmit={handleSubmit}>
         <Input classInput={'input-filter'} placeholder={"Min- цена"} type={"text"} value={minPrice} onChange={handleMinPriceChange}/>
         <Input classInput={'input-filter'} placeholder={"Max- цена"} type={"text"} value={maxPrice} onChange={handleMaxPriceChange}/>

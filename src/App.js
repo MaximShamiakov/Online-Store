@@ -29,8 +29,12 @@ import {
   minusCartItem,
 } from "./redux/actions/cart";
 import axios from "axios";
-import { startLoading, stopLoading } from "./Components/isLoadingThunks";
+import {
+  startLoading,
+  stopLoading,
+} from "./Components/UseIsLoading/isLoadingThunks";
 import { API_URL } from "./config";
+import { useIsLoading } from "./Components/UseIsLoading/useIsLoading";
 
 function App() {
   const dispatch = useDispatch();
@@ -99,12 +103,11 @@ function App() {
     dispatch(minusCartItem(id));
   };
   const name = localStorage.getItem("name");
-  const loadingHome = useSelector(
-    ({ isLoadingReducer }) => isLoadingReducer.isLoadingHome
-  );
+  const loading = useIsLoading();
+
   return (
     <div className="main">
-      {loadingHome !== true ? (
+      {loading !== true ? (
         <div className="wrap">
           <Header onSearch={handleSearch} />
           <div className="par">
@@ -190,7 +193,7 @@ function App() {
           </div>
         </div>
       ) : (
-        <div className="loading-home">Loading...</div>
+        <div className="loading">Loading...</div>
       )}
     </div>
   );

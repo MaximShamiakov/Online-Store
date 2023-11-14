@@ -6,6 +6,8 @@ import { setModels } from '../../../redux/actions/models';
 import { actionsPage } from '../../../redux/actions/page';
 import { setSortBy } from '../../../redux/actions/sort';
 import { API_URL } from '../../../config';
+import { useIsLoadingComponent } from '../../UseIsLoading/useIsLoading';
+
 
 
 export default function FilterModels(props) {
@@ -50,15 +52,11 @@ const handleScroll = (event) => {
       });
   }
 };
-  const isLoading = useSelector(
-    ({ isLoadingReducer }) => isLoadingReducer.isLoading
-  );
-  if (isLoading) {
-    return <div className="loading">Loading...</div>;
-  }
+  const isLoading = useIsLoadingComponent()
 
   return (
     <div className="cont description">
+      { isLoading !== true ? (
       <div className="form" onScroll={handleScroll} >
         <VisiblePopup activeSortText = {sortBy}/>
         <Filter/>
@@ -83,7 +81,9 @@ const handleScroll = (event) => {
                 }
             </div>
           </form>
-        </div>
+        </div>) : (
+          <div className="loading">Loading...</div>
+        )}
       </div>
   )
 }

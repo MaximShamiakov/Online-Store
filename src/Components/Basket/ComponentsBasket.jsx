@@ -7,7 +7,7 @@ export default function ComponentsBasket(props) {
 
   const {totalPrice, totalCount, items}= useSelector(({cart})=> cart)
   const addedModels = Object.keys(items).map((key) =>{
-    return items[key].items[0]
+    return (items[key].items[0])
   })
   const handeleRemoveClick = (id)=>{
     props.onRemove(id)
