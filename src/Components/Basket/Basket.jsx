@@ -2,6 +2,7 @@ import React from 'react'
 import { Link} from 'react-router-dom';
 import {Button} from '..'
 import { useSelector } from 'react-redux';
+import { handleMinusItem, handlePlusItem, handleRemoveClick } from '../buttonHandlers';
 
 
 export default function Basket(props) {
@@ -11,15 +12,6 @@ export default function Basket(props) {
       items[key].items[0]
     )
   })
-  const handeleRemoveClick = (id)=>{
-    props.onRemove(id)
-  }
-  const handelePlusItem = (id)=>{
-    props.onPlus(id)
-  }
-  const handeleMinusItem = (id)=>{
-    props.onMinus(id)
-  }
  
   return (
     <div className="basket-block">
@@ -50,14 +42,14 @@ export default function Basket(props) {
                 <h2 className="txt"> <span> {obj.brand}</span></h2>
                 <h2 className="txt">Цена - <span>{obj.price}$</span></h2>
                 <div className='plus-minus'>
-                  <Button onClick={()=>handelePlusItem(obj.id)} classBtn={'plus-minus-btn'} text={'+'}/>
+                  <Button onClick={()=>handlePlusItem(obj.id, props.onPlus(obj.id))} classBtn={'plus-minus-btn'} text={'+'}/>
                   <h2 className='quantity-of-goods'>{items[obj.id].items.length} шт</h2>
-                  <Button onClick={()=>handeleMinusItem(obj.id)} classBtn={'plus-minus-btn'} text={'-'}/>
+                  <Button onClick={()=>handleMinusItem(obj.id, props.onMinus(obj.id))} classBtn={'plus-minus-btn'} text={'-'}/>
                 </div>
                   <h2 className='txt'>{items[obj.id].totalPrice}$</h2>
               </div>
                 <div className='basket-item-block'>
-                  <Button onClick={()=>handeleRemoveClick(obj.id)} classBtn={'basket-item-block-btn3'} text={'❌'}/>
+                  <Button onClick={()=>handleRemoveClick(obj.id, props.onRemove(obj.id))} classBtn={'basket-item-block-btn3'} text={'❌'}/>
                 </div>
               </div>
           </div>

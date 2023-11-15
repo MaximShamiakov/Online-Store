@@ -1,11 +1,6 @@
 import axios from "axios";
 import { addModelsToCart } from "./cart";
 import { myOrders } from "./myOrders";
-import { regDescription } from "../../redux/actions/regDescription";
-import { contacts } from "../../redux/actions/сontacts";
-import { delivery } from "../../redux/actions/delivery";
-import { service } from "../../redux/actions/service";
-import { design } from "../../redux/actions/design";
 import { productName } from "./productName";
 import {
   startLoading,
@@ -14,23 +9,8 @@ import {
   stopLoadingComponent,
 } from "../../Components/UseIsLoading/isLoadingThunks";
 import { API_URL } from "../../config";
-import { setLogo } from "./logo";
 
 export const fetchModels = () => (dispatch) => {
-  const actions = {
-    regDescription,
-    delivery,
-    service,
-    design,
-    contacts,
-  };
-  const information = [
-    { name: "regDescription" },
-    { name: "delivery" },
-    { name: "service" },
-    { name: "design" },
-    { name: "contacts" },
-  ];
   const key = localStorage.getItem("key");
 
   if (
@@ -40,7 +20,7 @@ export const fetchModels = () => (dispatch) => {
   ) {
     window.location.href = "/";
   }
-  axios.post(`${API_URL}/`, { title: "tv" }).then((data) => {
+  axios.post(`${API_URL}/material/`, { title: "tv" }).then((data) => {
     dispatch(startLoadingComponent());
     dispatch(setModels(data.data));
     dispatch(stopLoadingComponent());
@@ -67,19 +47,6 @@ export const fetchModels = () => (dispatch) => {
     if (response.status === 200) {
       dispatch(stopLoadingComponent());
     }
-  });
-
-  information.forEach((item) => {
-    axios.post(`${API_URL}/${item.name}/`).then((response) => {
-      dispatch(actions[item.name](response.data));
-    });
-  });
-  axios.post(`${API_URL}/logo/`).then((response) => {
-    dispatch(startLoading());
-    const data = response.data;
-    dispatch(setLogo(data));
-    dispatch(stopLoading());
-    console.log(data);
   });
   axios.post(`${API_URL}/productName/`).then((response) => {
     dispatch(startLoading());

@@ -1,4 +1,4 @@
-export const setLogo = (obj) => ({
-  type: "SET_LOGO",
+export const logo = (obj) => ({
+  type: "LOGO",
   payload: obj,
 });

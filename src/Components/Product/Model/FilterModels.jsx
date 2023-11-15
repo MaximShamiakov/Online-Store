@@ -2,7 +2,7 @@ import React from 'react'
 import {Button, VisiblePopup, Filter} from '../..'
 import {useDispatch} from "react-redux";
 import { setSortBy } from '../../../redux/actions/sort';
-import { useIsLoadingComponent } from '../../UseIsLoading/useIsLoading';
+import { useIsLoadingComponent } from '../../UseIsLoading/isLoadingThunks';
 
 
 

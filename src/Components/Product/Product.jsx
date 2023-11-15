@@ -14,7 +14,7 @@ const Product = React.memo(
         const onSelectItems = (index, title)=>{
           setCount(index)
           props.onClickItem(index)
-          axios.post(`${API_URL}/`, { title: title})
+          axios.post(`${API_URL}/material/`, { title: title})
           .then(response => {
             dispatch(setModels(response.data))
             dispatch(setSortBy(null))

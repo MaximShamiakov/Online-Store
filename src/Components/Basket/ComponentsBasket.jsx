@@ -1,6 +1,7 @@
 import React from 'react'
 import Button from '../Button/Button'
 import { useSelector} from 'react-redux'
+import { handleRemoveClick, handleMinusItem, handlePlusItem } from '../buttonHandlers'
 import { Link } from 'react-router-dom'
 
 export default function ComponentsBasket(props) {
@@ -9,15 +10,6 @@ export default function ComponentsBasket(props) {
   const addedModels = Object.keys(items).map((key) =>{
     return (items[key].items[0])
   })
-  const handeleRemoveClick = (id)=>{
-    props.onRemove(id)
-  }
-  const handelePlusItem = (id)=>{
-      props.onPlus(id)
-  }
-  const handeleMinusItem = (id)=>{
-      props.onMinus(id)
-  }
   const idObjCartOrder = (id) =>{
     localStorage.setItem("id", id)
   }
@@ -42,16 +34,16 @@ export default function ComponentsBasket(props) {
                       <h2 className="txt">Цена - <span>{obj.price}</span></h2>
                       <h2 className='txt'>Итог-{items[obj.id].totalPrice}$</h2>
                       <div className='plus-minus'>
-                        <Button onClick={()=>handelePlusItem(obj.id)} classBtn={'plus-minus-btn'} text={'+'}/>
+                        <Button onClick={()=>handlePlusItem(obj.id, props.onPlus(obj.id))} classBtn={'plus-minus-btn'} text={'+'}/>
                         <h2 className='quantity-of-goods'>{items[obj.id].items.length} шт</h2>
-                        <Button onClick={()=>handeleMinusItem(obj.id)} classBtn={'plus-minus-btn'} text={'-'}/>
+                        <Button onClick={()=>handleMinusItem(obj.id, props.onMinus(obj.id))} classBtn={'plus-minus-btn'} text={'-'}/>
                       </div>
                     </div>  
                     <div className='basket-item-block'>
                       <Link to={"/userPage/orderForm"}>
                         <Button onClick={()=>idObjCartOrder(obj.id)} classBtn={'basket-item-block-btn'} text={'Заказать'}/>
                       </Link>
-                      <Button onClick={()=>handeleRemoveClick(obj.id)} classBtn={'basket-item-block-btn'} text={'Удалить'}/>
+                      <Button onClick={()=>handleRemoveClick(obj.id, props.onRemove(obj.id))} classBtn={'basket-item-block-btn'} text={'Удалить'}/>
                     </div>
                   </div>
                     )) : <h1 className="cont component-basket"> Корзина пуста</h1>

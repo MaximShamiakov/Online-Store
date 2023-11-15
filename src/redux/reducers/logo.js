@@ -4,7 +4,7 @@ const initialState = {
 
 const logo = (state = initialState, action) => {
   console.log(action);
-  if (action.type === "SET_LOGO") {
+  if (action.type === "LOGO") {
     return {
       ...state,
       logo: action.payload,

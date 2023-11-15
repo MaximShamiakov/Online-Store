@@ -34,10 +34,12 @@ import {
   stopLoading,
 } from "./Components/UseIsLoading/isLoadingThunks";
 import { API_URL } from "./config";
-import { useIsLoading } from "./Components/UseIsLoading/useIsLoading";
+import { useIsLoading } from "./Components/UseIsLoading/isLoadingThunks";
+import { ApiDataFetcher } from "./Components/apiDataFetcher";
 
 function App() {
   const dispatch = useDispatch();
+  ApiDataFetcher();
   const itemsModels = useSelector(({ models }) => models.items);
   const modelsFilter = useSelector(
     ({ modelsFilterReducer }) => modelsFilterReducer.items

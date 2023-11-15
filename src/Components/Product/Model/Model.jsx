@@ -6,7 +6,7 @@ import { setModels } from '../../../redux/actions/models';
 import { actionsPage } from '../../../redux/actions/page';
 import { setSortBy } from '../../../redux/actions/sort';
 import { API_URL } from '../../../config';
-import { useIsLoadingComponent } from '../../UseIsLoading/useIsLoading';
+import { useIsLoadingComponent } from '../../UseIsLoading/isLoadingThunks';
 
 
 
@@ -39,7 +39,7 @@ const handleScroll = (event) => {
   setTitle(props.stateProducts);
   const target = event.target;
   if (target.scrollHeight - target.scrollTop === target.clientHeight) {
-    axios.post(`${API_URL}/`, { title: title , page: pageRedux})
+    axios.post(`${API_URL}/material/`, { title: title , page: pageRedux})
       .then(response => {
         dispatch(setModels(response.data));
         dispatch(actionsPage(null));

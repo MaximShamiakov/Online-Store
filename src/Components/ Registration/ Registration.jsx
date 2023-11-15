@@ -1,22 +1,13 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Header from '../Header/Header'
 import {Delivery, Service, Contacts, Design, MainInformation, RegistrationForm, AuthenticationForm} from "../index"
 import { Route, Routes } from "react-router-dom";
 import { useState } from 'react';
-import axios from 'axios';
-import { useDispatch} from 'react-redux';
-import { regDescription } from '../../redux/actions/regDescription';
-import { contacts } from '../../redux/actions/сontacts'; 
-import { delivery } from '../../redux/actions/delivery'; 
-import { service } from '../../redux/actions/service'; 
-import { design } from '../../redux/actions/design';
-import { startLoading, stopLoading } from '../UseIsLoading/isLoadingThunks';
-import { API_URL } from '../../config';
-import { useIsLoading } from '../UseIsLoading/useIsLoading';
+import { useIsLoading } from '../UseIsLoading/isLoadingThunks';
+import { ApiDataFetcher } from '../apiDataFetcher';
 
 
 export default function Registration() {
-  const dispatch = useDispatch()
   const icons = [
     "logo-facebook",
     "logo-instagram",
@@ -25,30 +16,8 @@ export default function Registration() {
     "logo-skype"
   ]
   const [activeForm, setActiveForm] = useState('registration');
-  useEffect(() => {
-    const actions = {
-      regDescription,
-      delivery,
-      service,
-      design,
-      contacts,
-    }
-    const information = [
-      {name:"regDescription"},
-      {name:"delivery"},
-      {name:"service"},
-      {name:"design"},
-      {name:"contacts"},
-    ]
-  
-    information.forEach(item => {
-      dispatch(startLoading())
-      axios.post(`${API_URL}/${item.name}/`).then((response) => {
-        dispatch(actions[item.name](response.data))
-        dispatch(stopLoading())
-      })
-    })
-  }, [dispatch])
+
+  ApiDataFetcher()
 
   const isLoading = useIsLoading()
 
