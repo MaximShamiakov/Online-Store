@@ -7,7 +7,7 @@ import {
   stopLoading,
   startLoadingComponent,
   stopLoadingComponent,
-} from "../../Components/UseIsLoading/isLoadingThunks";
+} from "../../Components/RepeatTheCode/isLoadingThunks";
 import { API_URL } from "../../config";
 
 export const fetchModels = () => (dispatch) => {

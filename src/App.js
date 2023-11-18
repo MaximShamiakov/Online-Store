@@ -32,10 +32,10 @@ import axios from "axios";
 import {
   startLoading,
   stopLoading,
-} from "./Components/UseIsLoading/isLoadingThunks";
+} from "./Components/RepeatTheCode/isLoadingThunks";
 import { API_URL } from "./config";
-import { useIsLoading } from "./Components/UseIsLoading/isLoadingThunks";
-import { ApiDataFetcher } from "./Components/apiDataFetcher";
+import { ApiDataFetcher } from "./Components/RepeatTheCode/apiDataFetcher";
+import { useIsLoading } from "./Components/RepeatTheCode/isLoadingThunks";
 
 function App() {
   const dispatch = useDispatch();
@@ -64,6 +64,7 @@ function App() {
     dispatch(fetchModels());
   }, [dispatch]);
   const handeleAddModelsToCart = async (obj) => {
+    console.log(obj);
     dispatch(addModelsToCart(obj));
     const product_id = obj.id;
     const key = localStorage.getItem("key");

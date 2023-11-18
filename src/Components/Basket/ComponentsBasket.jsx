@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from '../Button/Button'
 import { useSelector} from 'react-redux'
-import { handleRemoveClick, handleMinusItem, handlePlusItem } from '../buttonHandlers'
+import { handleRemoveClick, handleMinusItem, handlePlusItem } from '../RepeatTheCode/buttonHandlers'
 import { Link } from 'react-router-dom'
 
 export default function ComponentsBasket(props) {
@@ -25,10 +25,9 @@ export default function ComponentsBasket(props) {
             <div className='shopping-cart'>
               {
                 totalCount ? addedModels.map((obj)=>(
-                <div key={obj + obj.id} className="block-product-basket">
+                <div key={obj.id + obj} className="block-product-basket">
                   <img className="img-basket" src={obj.img} alt=""/>                  
                     <div className='info-product-basket'>
-                      <h2 className="txt">id <span>{obj.id}</span></h2>
                       <h2 className="txt"><span>{obj.name}</span></h2>
                       <h2 className="txt">Модель - <span> {obj.brand}</span></h2>
                       <h2 className="txt">Цена - <span>{obj.price}</span></h2>

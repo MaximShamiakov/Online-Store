@@ -5,7 +5,7 @@ import { useDispatch, useSelector} from "react-redux";
 import { Link, useLocation } from 'react-router-dom';
 import { modelsFilter } from '../../redux/actions/modelsFilter';
 import { API_URL } from '../../config';
-import { startLoadingComponent, stopLoadingComponent } from '../UseIsLoading/isLoadingThunks';
+import { startLoadingComponent, stopLoadingComponent } from '../RepeatTheCode/isLoadingThunks';
 
 
 export default function Filter(props) {

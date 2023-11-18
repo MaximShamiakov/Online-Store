@@ -3,8 +3,8 @@ import Header from '../Header/Header'
 import {Delivery, Service, Contacts, Design, MainInformation, RegistrationForm, AuthenticationForm} from "../index"
 import { Route, Routes } from "react-router-dom";
 import { useState } from 'react';
-import { useIsLoading } from '../UseIsLoading/isLoadingThunks';
-import { ApiDataFetcher } from '../apiDataFetcher';
+import { useIsLoading } from '../RepeatTheCode/isLoadingThunks';
+import { ApiDataFetcher } from '../RepeatTheCode/apiDataFetcher';
 
 
 export default function Registration() {

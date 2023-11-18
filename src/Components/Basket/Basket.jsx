@@ -2,7 +2,7 @@ import React from 'react'
 import { Link} from 'react-router-dom';
 import {Button} from '..'
 import { useSelector } from 'react-redux';
-import { handleMinusItem, handlePlusItem, handleRemoveClick } from '../buttonHandlers';
+import { handleMinusItem, handlePlusItem, handleRemoveClick } from '../RepeatTheCode/buttonHandlers';
 
 
 export default function Basket(props) {
